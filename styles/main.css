@@ -1,0 +1,11 @@
+#main-section {
+        
+    & div:nth-child(2) {
+        flex-direction: column;
+        align-items: center;
+        
+            & img {
+            width: 128px;
+        }
+    }
+}

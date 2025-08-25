@@ -1,5 +1,5 @@
 .container {
-   width: 375px;
+   width: 100%;
    max-width: 100%;
    background-color: var(--bg-color);
 }
@@ -16,6 +16,10 @@
    grid-auto-columns: auto;
 }
 
+.center-items {
+   justify-content: center;
+}
+
 .pad-32 {
    padding: 2rem;
 }
@@ -28,8 +32,16 @@
    padding: 4rem;
 }
 
-@media (width >= 80em){
-   .container {
-      width: 100%;
-   }
+.desktop-only {
+  display: none;
+}
+
+@media (width >= 80em) {
+  .container {
+    width: 100%;
+  }
+
+  .desktop-only {
+    display: block;
+  }
 }
