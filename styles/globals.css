@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #F9F8F8;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}

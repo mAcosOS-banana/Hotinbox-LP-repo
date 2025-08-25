@@ -1,0 +1,35 @@
+.container {
+   width: 375px;
+   max-width: 100%;
+   background-color: var(--bg-color);
+}
+
+.flex {
+   display: flex;
+}
+
+.grid {
+   display: grid;
+}
+
+.even-columns {
+   grid-auto-columns: auto;
+}
+
+.pad-32 {
+   padding: 2rem;
+}
+
+.pad-16 {
+   padding: 1rem;
+}
+
+.pad {
+   padding: 4rem;
+}
+
+@media (width >= 80em){
+   .container {
+      width: 100%;
+   }
+}
