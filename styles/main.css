@@ -1,5 +1,7 @@
 #main-section {
-   padding: 2rem;
+   padding-inline: 2rem;
+   padding-block: 2rem 19rem;
+   box-shadow: var(--box-shadow-default);
    #logo-img {
          width: 159px;
          height: 128px;
@@ -25,18 +27,20 @@
    & #buttons {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      padding: 51px 125px;
+      gap: 2rem;
+      padding-top: 10rem;
    }
+   
 }
 
 @media (width >= 80em) {
    #main-section {
+      padding-block: 0 16.9rem;
+      
       #logo-img {
          width: 200px;
          height: 160px;
       }
-      padding: 0 2rem;
       #box-plant {
          width: 238px;
          padding-top: 1rem;
@@ -56,9 +60,9 @@
             padding-bottom: 2rem;
          }
 
-         #buttons {
-            padding: 42px 125px;
-         }
+      }
+      & #buttons {
+         padding-top: 4rem;
       }
    }
 }

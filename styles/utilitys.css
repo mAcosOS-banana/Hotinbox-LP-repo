@@ -11,7 +11,9 @@
 .grid {
    display: grid;
 }
-
+.grid-flow-columns {
+   grid-auto-flow: column;
+}
 .even-columns {
    grid-auto-columns: auto;
 }
