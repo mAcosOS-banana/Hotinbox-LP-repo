@@ -1,0 +1,19 @@
+.btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0.5rem;
+   gap: 1rem;
+   background-color: var(--brand-color-secondary);
+   border-radius: 0.5rem;
+}
+
+.btc  {
+    
+}
+
+
+.btn-md {
+   width: 13.4375rem;
+   height: 4.5625rem;
+}
