@@ -2,18 +2,37 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 0.5rem;
-   gap: 1rem;
    background-color: var(--brand-color-secondary);
    border-radius: 0.5rem;
+   border: 2px solid black;
+   color: white;
+   box-shadow: var(--box-shadow-default);
+   font: var(--fw-bold) var(--fs-base) 'Exo';
+   text-align: center;
 }
 
-.btc  {
-    
+.btn-wt {
+   background-color: var(--surfface-color);
+   color: black;
 }
-
 
 .btn-md {
-   width: 13.4375rem;
+   width: 8.8125rem;
    height: 4.5625rem;
+}
+
+@media (width >= 80em) {
+   .btn {
+      & img {
+         margin-left: 0.5rem;
+      }
+      & p {
+         margin-left: -1rem;
+      }
+   }
+
+   .btn-md {
+      width: 13.4375rem;
+      height: 4.5625rem;
+   }
 }

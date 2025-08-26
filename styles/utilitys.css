@@ -1,7 +1,7 @@
 .container {
-   width: 100%;
-   max-width: 100%;
-   background-color: var(--bg-color);
+   --max-width: 375px;
+   width: min(var(--max-width), 100% - var(--px-lg) * 2);
+   margin-inline: auto;
 }
 
 .flex {
@@ -28,20 +28,39 @@
    padding: 1rem;
 }
 
-.pad {
+.px-xl {
+   padding-inline: 4rem;
+}
+.px-xxl {
+   padding-inline: 7.8125rem;
+}
+
+.py-sm {
+   padding: 0.5rem;
+}
+.py-xl {
    padding: 4rem;
+}
+.py-xxl {
+   padding-block: 7.8125rem;
 }
 
 .desktop-only {
-  display: none;
+   display: none;
 }
 
-@media (width >= 80em) {
-  .container {
-    width: 100%;
-  }
+.sub-label {
+   color: var(--brand-color);
+   font-size: 2rem;
+}
 
-  .desktop-only {
-    display: block;
-  }
+
+@media (width >= 80em) {
+   .container {
+      --max-width: 80rem;
+   }
+
+   .desktop-only {
+      display: block;
+   }
 }
