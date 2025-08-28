@@ -30,6 +30,10 @@
    padding: 1rem;
 }
 
+.px-lg {
+   padding-inline: 2rem;
+}
+
 .px-xl {
    padding-inline: 4rem;
 }
@@ -39,6 +43,10 @@
 
 .py-sm {
    padding: 0.5rem;
+}
+
+.py-md {
+   padding-block: 2rem;
 }
 .py-xl {
    padding: 4rem;
@@ -51,11 +59,24 @@
    display: none;
 }
 
+.mobile-only {
+   display: block;
+}
+
 .sub-label {
    color: var(--brand-color);
    font-size: 2rem;
 }
 
+.gap-32 {
+   gap: 2rem;
+}
+
+.box {
+   background-color: #ffffff;
+   box-shadow: var(--box-shadow-default);
+   border-radius: 0.5rem;
+}
 
 @media (width >= 80em) {
    .container {
@@ -64,5 +85,9 @@
 
    .desktop-only {
       display: block;
+   }
+
+   .mobile-only {
+      display: none;
    }
 }

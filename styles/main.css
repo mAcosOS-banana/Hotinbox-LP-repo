@@ -1,6 +1,6 @@
 #main-section {
    padding-inline: 2rem;
-   padding-block: 2rem 19rem;
+   padding-block: 2rem 13.8125rem;
    box-shadow: var(--box-shadow-default);
    #logo-img {
          width: 159px;
@@ -20,7 +20,8 @@
       }
 
       & img {
-         width: 232px;
+         padding-top: 2rem;
+         width: 300px;
       }
    }
 
@@ -28,14 +29,14 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding-top: 10rem;
+      padding-top: 6rem;
    }
    
 }
 
 @media (width >= 80em) {
    #main-section {
-      padding-block: 0 16.9rem;
+      padding-block: 0 calc(7.8125rem * 2.2);
       
       #logo-img {
          width: 200px;

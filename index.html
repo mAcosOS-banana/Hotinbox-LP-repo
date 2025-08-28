@@ -3,7 +3,7 @@
    <head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      
+
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="./styles/index.css" />
@@ -15,15 +15,25 @@
       />
    </head>
    <body>
-      <section id="main-section" class="container">
+      <section id="main-section">
          <div class="container flex center-items">
-            <img src="./assets/icons/logo-im.svg" alt="logo-image" id="logo-img"/>
+            <img
+               src="./assets/icons/logo-im.svg"
+               alt="logo-image"
+               id="logo-img"
+            />
          </div>
 
          <div class="flex center-items">
             <h1>Tudo que você precisa em uma <span>caixa</span></h1>
-            <h2 class='sub-label desktop-only'>É muito mais do que só cultivo</h2>
-            <img id='box-plant' src="./assets/icons/plant-in-box.svg" alt="plant-box" />
+            <h2 class="sub-label desktop-only">
+               É muito mais do que só cultivo
+            </h2>
+            <img
+               id="box-plant"
+               src="./assets/icons/plant-in-box.svg"
+               alt="plant-box"
+            />
          </div>
          <div class="container" id="buttons">
             <a href="">
@@ -45,9 +55,31 @@
          </div>
       </section>
 
-      <section id="about" class="container py-xxl">
-         <div class="container grid grid-flow-columns ">
-            a
+      <section id="about">
+         <div class="container grid">
+            <div>
+               <h2 class="sub-label">Cultivar Nunca foi tão fácil</h2>
+               <p class="py-md">
+                  Nossos kits de cultivo personalizaveis se adaptam ao seu tempo
+                  e espaço transformando a experiencia de cultivar em algo
+                  simples e prático!!
+               </p>
+               <div class="box">
+                  <img
+                     class="mobile-only"
+                     src="./assets/images/microverdes.jpg"
+                     alt=""
+                  />
+                  <ul role="list">
+                     <li><img src="" alt="" /><span></span></li>
+                     <li><img src="" alt="" /><span></span></li>
+                     <li><img src="" alt="" /><span></span></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="desktop-only">
+               <img src="./assets/images/microverdes.jpg" alt="" />
+            </div>
          </div>
       </section>
    </body>
