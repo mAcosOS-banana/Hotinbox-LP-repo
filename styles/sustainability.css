@@ -89,13 +89,13 @@
       }
    }
    & #wpp-button {
-      position: sticky;
+      position: fixed;
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
       bottom: 0;
       right: 0;
-      margin: 4rem;
+      margin: 2rem;
       & img {
          width: 2rem;
          object-fit: cover;
