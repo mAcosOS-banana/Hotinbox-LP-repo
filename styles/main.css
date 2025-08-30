@@ -36,7 +36,7 @@
 
 @media (width >= 80em) {
    #main-section {
-      padding-block: 0 calc(7.8125rem * 2.2);
+      padding-block: 0 calc(8.3125rem * 2.2);
       
       #logo-img {
          width: 200px;

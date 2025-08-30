@@ -7,7 +7,7 @@
    border: 2px solid black;
    color: white;
    box-shadow: var(--box-shadow-default);
-   font: var(--fw-bold) var(--fs-base) 'Exo';
+   font: var(--fw-bold) var(--fs-base) 'Archivo';
    text-align: center;
 }
 
