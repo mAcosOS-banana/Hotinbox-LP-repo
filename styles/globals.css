@@ -2,15 +2,21 @@
    --bg-color: #f9f8f8;
    --brand-color: #a4d47c;
    --brand-color-secondary: #80d858;
+   --brand-dark-color: #1C7434;
    --surfface-color: #f5f5f5;
    --box-shadow-default: 0px 2px 4px 0px gray;
    --fc-default: black;
    --fw-bold: 800;
+   --fw-sm: 500;
 
-   --fs-sm: 1rem;
-   --fs-base: 1.25rem;
+
+
+   --fs-sm: 1rem/127%;
+   --fs-base: 1.25rem/127%;
    --fs-md: 2rem;
    --fs-lg: 3rem;
+
+   scroll-behavior: smooth;
 }
 
 * {

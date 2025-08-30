@@ -1,0 +1,91 @@
+#sustainability {
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, 1fr);
+  
+   & h3 {
+      text-align: center;
+   }
+   & #cards-area {
+      grid-auto-flow: row;
+      justify-content: center;
+      align-items: center;
+   }
+   .box {
+      width: 230px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-block:  1.125rem;
+      padding-inline: 2rem;
+      & span {
+         text-align: center;
+         font-size: var(--fs-sm);
+         font-weight: var(--fw-bold);
+         color: var(--brand-dark-color);
+      }
+      & img {
+         width: 66px;
+         height: 58px;
+         margin-block: 0.625rem;
+         object-fit: contain;
+      }
+      & p {
+         font-size: 0.8125rem;
+         font-weight: var(--fw-sm);
+         width: 164px;
+         height: 91px;
+         text-align: center;
+      }
+   }
+   @media (width >= 80em) {
+      & #cards-area {
+         grid-auto-flow: column;
+         padding-inline: 4.875rem;
+         justify-content: space-around;
+         column-gap: 4rem;
+      }
+      & .box {
+         width: 332px;
+         height: 228px;
+         padding-block: 2rem;
+         & img {
+            align-self: center;
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            margin-block: 0.625rem;
+         }
+      }
+      & #cards-descs {
+         grid-column: 1/4;
+         grid-row: 2/4;
+         display: grid;
+         gap: 4rem;
+         justify-content: space-between;
+         grid-template-areas: 'desc1 desc2 desc3';
+         & > div {
+            width: 332px;
+            padding-bottom: 11.5rem;
+            & span {
+               color: var(--brand-dark-color);
+               font-weight: 800;
+               line-height: 2rem;
+            }
+            & p{
+               height: 68px;
+               margin-bottom: 1.125rem;
+               font-weight: var(--fw-sm);
+            }
+         }
+         & div:nth-child(1) {
+            grid-area: desc1;
+         }
+         & div:nth-child(2) {
+            grid-area: desc2;
+         }
+         & div:nth-child(3) {
+            grid-area: desc3;
+         }
+      }
+   }
+}

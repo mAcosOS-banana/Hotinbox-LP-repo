@@ -68,6 +68,10 @@
    font-size: 2rem;
 }
 
+.gap-16{
+   gap: 1rem
+}
+
 .gap-32 {
    gap: 2rem;
 }
@@ -76,6 +80,12 @@
    background-color: #ffffff;
    box-shadow: var(--box-shadow-default);
    border-radius: 0.5rem;
+}
+
+.line-bottom {
+   width: 100%;
+   height: 2px;
+   background-color: var(--brand-dark-color);
 }
 
 @media (width >= 80em) {

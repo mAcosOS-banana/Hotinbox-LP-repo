@@ -1,8 +1,9 @@
 #about {
    --padding-page: 2rem 4rem;
+   --inline-padding-page: 2rem; 
    padding-block: var(--padding-page);
-   grid-template-columns: 1fr 1fr;
    box-shadow: var(--box-shadow-default);
+   padding-inline: var(--inline-padding-page);
 
    & h2 {
       font-size: var(--fs-base);
@@ -14,7 +15,6 @@
    }
 
    & div:nth-child(1) {
-      margin-inline: 2rem;
       & .box {
          display: grid;
          align-items: center;
@@ -38,13 +38,14 @@
                   margin: auto;
                   display: flex;
                   width: 60vw;
-                  
+                  height: 120px;
                   & figure {
                      background-color: var(--brand-color);
-                     border-radius: 10px 0px 0px 10px;
+                     border-radius: 8px 0px 0px 8px;
                      display: flex;
                      flex-direction: column;
                      width: 100px;
+                     height: 100%;
                      justify-content: center;
                      align-items: center;
                      border: solid var(--brand-color);
@@ -64,6 +65,7 @@
                      align-self: center;
                      padding: 0.5rem;
                      font-size: 0.75rem;
+                     font-weight: var(--fw-sm);
                      width: 80%;
                      max-width: 80%;
                      white-space: normal;
@@ -74,17 +76,38 @@
             }
          }
       }
+      a[href="#sustainability"]{
+         justify-self: center;
+         align-items: center;
+         margin-top: 2rem;
+         & img{
+            position: relative;
+            right: -5px;
+         }
+         & p {
+            position: relative;
+            right: 10px;
+         }
+
+         @media (width >= 80em) {
+            & img {
+               top: 1px;
+               right: 8px;
+            }
+         }
+      } 
    }
 
    @media (width >= 80em) {
       --padding-page: 0rem 0rem;
+      --inline-padding-page: 0rem;
       & div:nth-child(1) {
+         grid-template-columns: 1fr 1.2fr;
          grid-column: 1/2;
-         margin-inline: 2rem 0;
+         justify-items: center;
          & h2 {
             padding-block: 2rem;
             text-align: center;
-            vertical-align: sub;
             width: 580px;
             height: 43px;
             font-size: var(--fs-md);
@@ -97,7 +120,6 @@
 
          & .box {
             width: 632px;
-
             & ul {
                display: flex;
                flex-direction: column;
@@ -108,7 +130,7 @@
                   width: 100%;
                   padding: 2rem;
                   & .box {
-                     height: 200px;
+                     height: 150px;
                      margin: auto;
                      display: flex;
                      width: 100%;
@@ -119,19 +141,21 @@
                         width: 200px;
                         justify-content: center;
                         align-items: center;
+                        padding-block: 20px;                        
                         & img {
-                           padding: 0.5rem;
+                           object-fit: contain;
+                           padding: 1rem;
                            width: 128px;
+                           height: 128px;
                         }
                         & figcaption {
                            text-align: center;
                            font-size: var(--fs-base);
-                           padding-bottom: 20px;
+                           
                         }
                      }
                      & p {
-                        align-self: flex-start;
-                        padding: 0.5rem;
+                        padding: 1rem;
                         font-size: var(--fs-sm);
                         white-space: normal;
                         overflow-wrap: break-word;
@@ -145,14 +169,14 @@
 
       & div[class='desktop-only'] {
          position: relative;
-         grid-column: 2/10;
+         grid-column: 2/4;
          width: 100%;
          height: 1000px;
          & img {
+            position: absolute;
             object-fit: cover;
             width: 100%;
-            height: 100%;
-            position: absolute;
+            height: 1000px;
          }
       }
    }
