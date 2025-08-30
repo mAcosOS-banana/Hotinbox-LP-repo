@@ -1,9 +1,10 @@
 :root {
    --bg-color: #f9f8f8;
    --brand-color: #a4d47c;
-   --brand-color-secondary: #80d858;
+   --brand-color-secondary: #82d85a;
    --brand-dark-color: #1C7434;
    --surfface-color: #f5f5f5;
+   --brand-color-light : #D3E7C3;
    --box-shadow-default: 0px 2px 4px 0px gray;
    --fc-default: black;
    --fw-bold: 800;
@@ -43,4 +44,14 @@ a {
 
 ul[role='list'] {
    list-style: none;
+}
+
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }

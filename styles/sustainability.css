@@ -1,7 +1,6 @@
 #sustainability {
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: repeat(2, 1fr);
-  
    & h3 {
       text-align: center;
    }
@@ -9,13 +8,14 @@
       grid-auto-flow: row;
       justify-content: center;
       align-items: center;
+      padding-bottom: 4rem;
    }
    .box {
       width: 230px;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding-block:  1.125rem;
+      padding-block: 1.125rem;
       padding-inline: 2rem;
       & span {
          text-align: center;
@@ -71,7 +71,7 @@
                font-weight: 800;
                line-height: 2rem;
             }
-            & p{
+            & p {
                height: 68px;
                margin-bottom: 1.125rem;
                font-weight: var(--fw-sm);
@@ -86,6 +86,20 @@
          & div:nth-child(3) {
             grid-area: desc3;
          }
+      }
+   }
+   & #wpp-button {
+      position: sticky;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      bottom: 0;
+      right: 0;
+      margin: 4rem;
+      & img {
+         width: 2rem;
+         object-fit: cover;
+         padding-right: 2px;
       }
    }
 }

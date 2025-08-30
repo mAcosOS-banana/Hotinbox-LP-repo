@@ -14,7 +14,12 @@
 .btn-wt {
    background-color: var(--surfface-color);
    color: black;
+   transition-duration: .6s;
+   &:hover {
+      background-color: var(--brand-color-light);
+   }
 }
+
 .btn-sm {
    width: 6.8125rem;
    height: 3.5625rem;
