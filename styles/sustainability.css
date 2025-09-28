@@ -62,7 +62,7 @@
          display: grid;
          gap: 4rem;
          justify-content: space-between;
-         grid-template-areas: 'desc1 desc2 desc3';
+         grid-template-areas: "desc1 desc2 desc3";
          & > div {
             width: 332px;
             padding-bottom: 11.5rem;
@@ -88,18 +88,6 @@
          }
       }
    }
-   & #wpp-button {
-      position: fixed;
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 50%;
-      bottom: 0;
-      right: 0;
-      margin: 2rem;
-      & img {
-         width: 2rem;
-         object-fit: cover;
-         padding-right: 2px;
-      }
-   }
 }
+
+

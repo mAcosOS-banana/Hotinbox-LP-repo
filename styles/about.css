@@ -1,6 +1,7 @@
 #about {
    --padding-page: 2rem 4rem;
-   --inline-padding-page: 2rem; 
+   --inline-padding-page: 2rem;
+
    padding-block: var(--padding-page);
    box-shadow: var(--box-shadow-default);
    padding-inline: var(--inline-padding-page);
@@ -11,15 +12,15 @@
    }
 
    & #about-desc {
-      font: var(--fw-bold) var(--fs-sm) 'Archivo';
+      font: var(--fw-bold) var(--fs-sm) "Archivo";
    }
 
-   & div:nth-child(1) {
+   & #cards{
       & .box {
          display: grid;
          align-items: center;
          justify-items: center;
-         & img[class='mobile-only'] {
+         & img[class="mobile-only"] {
             width: 100%;
             aspect-ratio: 16/9;
             object-fit: cover;
@@ -54,7 +55,7 @@
                         width: 64px;
                      }
                      & figcaption {
-                        color: #FFFFFF;
+                        color: #ffffff;
                         font-weight: 800;
                         text-align: center;
                         padding-bottom: 20px;
@@ -76,11 +77,13 @@
             }
          }
       }
-      a[href="#sustainability"]{
+      & a[href="#sustainability"] {
+         display: grid;
          justify-self: center;
          align-items: center;
-         margin-top: 2rem;
-         & img{
+         margin-top: 5rem;
+         margin-inline: auto;
+         & img {
             position: relative;
             right: -5px;
          }
@@ -95,16 +98,35 @@
                right: 8px;
             }
          }
-      } 
+      }
    }
+}
 
-   @media (width >= 80em) {
+@media (width >= 80em) {
+   #about {
       --padding-page: 0rem 0rem;
       --inline-padding-page: 0rem;
-      & div:nth-child(1) {
-         grid-template-columns: 1fr 1.2fr;
+      grid-template-columns: 0.93fr 1fr;
+      
+      & #microverdes-img {
+         width: 100%;
+         position: relative;
          grid-column: 1/2;
+         & img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: fit;
+         }
+      }
+
+      & #cards {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
          justify-items: center;
+         width: 100%;
+         height: 100%;
+         grid-column: 2/4;
          & h2 {
             padding-block: 2rem;
             text-align: center;
@@ -115,7 +137,7 @@
 
          & #about-desc {
             width: 580px;
-            font: var(--fw-bold) var(--fs-base) 'Archivo';
+            font: var(--fw-bold) var(--fs-base) "Archivo";
          }
 
          & .box {
@@ -141,7 +163,7 @@
                         width: 200px;
                         justify-content: center;
                         align-items: center;
-                        padding-block: 20px;                        
+                        padding-block: 20px;
                         & img {
                            object-fit: contain;
                            padding: 1rem;
@@ -151,7 +173,6 @@
                         & figcaption {
                            text-align: center;
                            font-size: var(--fs-base);
-                           
                         }
                      }
                      & p {
@@ -164,19 +185,6 @@
                   }
                }
             }
-         }
-      }
-
-      & div[class='desktop-only'] {
-         position: relative;
-         grid-column: 2/4;
-         width: 100%;
-         height: 1000px;
-         & img {
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 1000px;
          }
       }
    }

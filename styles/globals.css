@@ -55,3 +55,19 @@ section.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+#wpp-button {
+   position: fixed;
+   width: 5.5rem;
+   height: 5.5rem;
+   border-radius: 50%;
+   bottom: 0;
+   right: 0;
+   margin: 3rem;
+   z-index: 1;
+   & img {
+      width: 3rem;
+      object-fit: cover;
+      padding-right: 2px;
+   }
+}

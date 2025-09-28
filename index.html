@@ -15,119 +15,134 @@
       />
    </head>
    <body>
-      <section id="main-section">
-         <div class="container flex center-items">
-            <img
-               src="./assets/icons/logo-im.svg"
-               alt="logo-image"
-               id="logo-img"
-            />
+      <a
+         href="https://www.hortinbox.com.br"
+         id="wpp-button"
+         class="flex btn btn-wt btn-sm"
+      >
+         <div class="flex gap-16">
+            <img src="./assets/icons/whatsaapp logogreen.svg" alt="" />
          </div>
+      </a>
 
-         <div class="flex center-items">
+      <section id="main-section" class="container grid grid-flow-columns">
+         <div id="left-part" class="container flex">
+            <div class="flex">
+               <img
+                  src="./assets/icons/logo-im.svg"
+                  alt="logo-image"
+                  id="logo-img"
+               />
+            </div>
             <h1>Tudo que você precisa em uma <span>caixa</span></h1>
             <h2 class="sub-label desktop-only">
                É muito mais do que só cultivo
             </h2>
-            <img
-               id="box-plant"
-               src="./assets/icons/plant-in-box.svg"
-               alt="plant-box"
-            />
-         </div>
-         <div class="container" id="buttons">
-            <a href="https://wa.me/556596949561">
-               <div class="btn btn-md py-sm">
-                  <img
-                     id="wpp-img"
-                     src="./assets/icons/whatsaapp logo.svg"
-                     alt="Contate o Whatsapp"
-                  />
-                  <p class="desktop-only">Entre em contato</p>
-               </div>
-            </a>
 
-            <a href="#about">
-               <div class="btn btn-wt btn-md py-sm">
-                  <p>Sobre nós</p>
-               </div>
-            </a>
-         </div>
-      </section>
-
-      <section id="about">
-         <div class="container grid">
-            <div>
-               <h2 class="sub-label">Cultivar Nunca foi tão fácil</h2>
-               <p id="about-desc" class="py-md">
-                  Nossos kits de cultivo personalizaveis se adaptam ao seu tempo
-                  e espaço transformando a experiencia de cultivar em algo
-                  simples e prático!!
-               </p>
-               <div class="box">
-                  <img
-                     class="mobile-only"
-                     src="./assets/images/microverdes.jpg"
-                     alt=""
-                  />
-                  <ul role="list">
-                     <li>
-                        <div class="box">
-                           <figure>
-                              <img src="./assets/icons/time-icon.svg" alt="" />
-                              <figcaption>Mais tempo</figcaption>
-                           </figure>
-                           <p>
-                              Com a horta pronta para cultivo em caixa, fica
-                              fácil ter temperos e verduras fresquinhos em casa,
-                              sem complicações.
-                           </p>
-                        </div>
-                     </li>
-                     <li>
-                        <div class="box">
-                           <figure>
-                              <img
-                                 src="./assets/icons/organic-icon.svg"
-                                 alt=""
-                              />
-                              <figcaption>Mais Frescor</figcaption>
-                           </figure>
-                           <p>
-                              Seus temperos e verduras chegam sempre com muito
-                              mais frescor direto para a sua mesa.
-                           </p>
-                        </div>
-                     </li>
-                     <li>
-                        <div class="box">
-                           <figure>
-                              <img
-                                 src="./assets/icons/health_metrics_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-                                 alt=""
-                              />
-                              <figcaption>Mais Sáude</figcaption>
-                           </figure>
-                           <p>
-                              Com a Hortinbox você cultiva alimentos frescos,
-                              naturais e livres de agrotóxicos em casa. Uma
-                              solução prática que une bem-estar, sabor e
-                              qualidade de vida.
-                           </p>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-               <a href="#sustainability" class="grid btn btn-wt btn-sm">
-                  <div class="flex gap-16">
-                     <img src="./assets/icons/arrow-down.svg" alt="" />
-                     <p>Ideais</p>
+            <div class="flex" id="buttons">
+               <a href="https://wa.me/556596949561">
+                  <div class="btn btn-md py-sm">
+                     <img
+                        id="wpp-img"
+                        src="./assets/icons/whatsaapp logo.svg"
+                        alt="Contate o Whatsapp"
+                     />
+                     <p class="desktop-only">
+                        Fale agora com nossa equipe de vendas
+                     </p>
                   </div>
                </a>
             </div>
-            <div class="desktop-only">
-               <img src="./assets/images/microverdes.jpg" alt="" />
+
+            <a href="#about" class="btn btn-wt btn-sm">
+               <div>
+                  <img src="./assets/icons/arrow-down.svg" alt="" />
+               </div>
+            </a>
+
+            <div class="container mobile-only" id="inner-box">
+               <div class="mobile-only" id="round-image">
+                  <img src="" alt="" />
+               </div>
             </div>
+         </div>
+
+         <div class="flex" id="right-part">
+            <div id="img-box">
+               <img src="" alt="" />
+            </div>
+         </div>
+      </section>
+
+      <section id="about" class="container grid">
+         <div class="desktop-only" id="microverdes-img">
+            <img src="./assets/images/microverdes.jpg" alt="" />
+         </div>
+
+         <div id="cards">
+            <h2 class="sub-label">Cultivar Nunca foi tão fácil</h2>
+            <p id="about-desc" class="py-md">
+               Nossos kits de cultivo personalizaveis se adaptam ao seu tempo e
+               espaço transformando a experiencia de cultivar em algo simples e
+               prático!!
+            </p>
+            <div class="box">
+               <img
+                  class="mobile-only"
+                  src="./assets/images/microverdes.jpg"
+                  alt=""
+               />
+               <ul role="list">
+                  <li>
+                     <div class="box">
+                        <figure>
+                           <img src="./assets/icons/time-icon.svg" alt="" />
+                           <figcaption>Mais tempo</figcaption>
+                        </figure>
+                        <p>
+                           Com a horta pronta para cultivo em caixa, fica fácil
+                           ter temperos e verduras fresquinhos em casa, sem
+                           complicações.
+                        </p>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="box">
+                        <figure>
+                           <img src="./assets/icons/organic-icon.svg" alt="" />
+                           <figcaption>Mais Frescor</figcaption>
+                        </figure>
+                        <p>
+                           Seus temperos e verduras chegam sempre com muito mais
+                           frescor direto para a sua mesa.
+                        </p>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="box">
+                        <figure>
+                           <img
+                              src="./assets/icons/health_metrics_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                              alt=""
+                           />
+                           <figcaption>Mais Sáude</figcaption>
+                        </figure>
+                        <p>
+                           Com a Hortinbox você cultiva alimentos frescos,
+                           naturais e livres de agrotóxicos em casa. Uma solução
+                           prática que une bem-estar, sabor e qualidade de vida.
+                        </p>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+
+            <a href="#sustainability" class="grid btn btn-wt btn-sm">
+               <div class="flex gap-16">
+                  <img src="./assets/icons/arrow-down.svg" alt="" />
+                  <p>Ideais</p>
+               </div>
+            </a>
          </div>
       </section>
 
@@ -194,11 +209,6 @@
                </div>
             </div>
          </div>
-         <a href="#main-section" id="wpp-button" class="flex btn btn-wt btn-sm">
-            <div class="flex gap-16">
-               <img src="./assets/icons/whatsaapp logogreen.svg" alt="" />
-            </div>
-         </a>
       </section>
 
       <script src="./js/index.js"></script>
