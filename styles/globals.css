@@ -56,18 +56,32 @@ section.show {
   transform: translateY(0);
 }
 
+
+
+
 #wpp-button {
    position: fixed;
-   width: 5.5rem;
-   height: 5.5rem;
+   width: 3.5rem;
+   height: 3.5rem;
    border-radius: 50%;
    bottom: 0;
    right: 0;
-   margin: 3rem;
+   margin: 2rem;
    z-index: 1;
    & img {
-      width: 3rem;
+      width: 2rem;
       object-fit: cover;
       padding-right: 2px;
+   }
+
+}
+@media (width >= 80em) {
+   #wpp-button{
+      width: 5.5rem;
+      height: 5.5rem;
+      margin: 3rem;
+      & img {
+         width: 3rem;
+      }
    }
 }
