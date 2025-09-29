@@ -24,7 +24,7 @@
       & #buttons {
          display: flex;
          gap: 2rem;
-         padding-top: 10rem;
+         padding-top: 6rem;
          padding-bottom: 7rem;
 
          & a {
