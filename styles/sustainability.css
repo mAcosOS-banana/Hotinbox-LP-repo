@@ -7,11 +7,11 @@
    & #cards-area {
       grid-auto-flow: row;
       justify-content: center;
-      align-items: center;
-      padding-bottom: 4rem;
+      align-items: center; 
+      padding-bottom: 7rem;
    }
    .box {
-      width: 230px;
+      width: 230px;  
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -44,10 +44,13 @@
          justify-content: space-around;
          column-gap: 4rem;
       }
+      & div[class="grid center-items"]{
+         padding-block: 6rem 12rem;
+      }
       & .box {
          width: 332px;
          height: 228px;
-         padding-block: 2rem;
+         padding-block: 4rem;
          & img {
             align-self: center;
             width: 128px;
@@ -65,7 +68,6 @@
          grid-template-areas: "desc1 desc2 desc3";
          & > div {
             width: 332px;
-            padding-bottom: 11.5rem;
             & span {
                color: var(--brand-dark-color);
                font-weight: 800;
@@ -85,6 +87,10 @@
          }
          & div:nth-child(3) {
             grid-area: desc3;
+         }
+
+         .line-bottom {
+            margin-bottom: 18.5rem;
          }
       }
    }
