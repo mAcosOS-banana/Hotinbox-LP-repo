@@ -8,8 +8,8 @@ export function Chamada() {
   return (
     <Draw as="section" id="contato" aria-labelledby="contato-title" threshold={0.3}
       className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:pb-32">
-      <div className="chamada-box sketch grid items-center gap-10 bg-white px-6 py-12 sm:px-12 md:grid-cols-[auto_1fr] md:gap-14 lg:px-20 lg:py-16">
-        <Ramo seed={1} className="absolute -top-9 -right-5 w-28 sm:-right-8 sm:w-40 lg:w-52" />
+      <div className="chamada-box sketch grid items-center gap-10 bg-white px-4 py-12 min-[360px]:px-6 sm:px-12 md:grid-cols-[auto_1fr] md:gap-14 lg:px-20 lg:py-16">
+        <Ramo seed={1} className="absolute -top-9 -right-5 w-28 sm:-right-8 sm:w-40 md:-top-12 md:w-28 lg:-top-9 lg:w-52" />
         <div className="brotinho-host relative mx-auto w-44 sm:w-56 md:w-64">
           <Brotinho mood="wave" leafTarget className="w-full" />
           <svg viewBox="0 0 100 100" className="cta-sparkle pointer-events-none absolute -top-[6%] left-[52%] w-[46%]" fill="none" stroke="var(--color-beet)" strokeWidth={4} strokeLinecap="round" aria-hidden="true">
@@ -24,7 +24,7 @@ export function Chamada() {
             Chame a gente no WhatsApp, conte seu espaço e sua rotina, e receba o kit certo para você.
           </p>
           <div className="mt-9">
-            <a href={whatsappLink()} style={{ "--i": 2 } as CSSProperties} className="cta-pop cta-pop-btn btn-go w-full text-2xl sm:w-auto">
+            <a href={whatsappLink()} style={{ "--i": 2 } as CSSProperties} className="cta-pop cta-pop-btn btn-go w-full text-xl min-[360px]:text-2xl sm:w-auto">
               <WhatsAppGlyph />
               Quero meu kit
             </a>
@@ -41,9 +41,9 @@ export function Chamada() {
 export function Footer() {
   return (
     <footer className="vine-top bg-white/70">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 pt-10 pb-28 sm:px-8 md:flex-row md:items-center md:justify-between md:pb-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 footer-inner px-5 pt-10 sm:px-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
-          <img src="/assets/icons/logo-im.svg" alt="Hortinbox" width={159} height={128} loading="lazy" className="h-16 w-auto" />
+          <img src="/assets/images/logo.webp" alt="Hortinbox" width={298} height={240} loading="lazy" className="h-16 w-auto" />
           <p className="text-base leading-snug">
             Kits de cultivo para plantar em casa.
             <br />
@@ -54,13 +54,13 @@ export function Footer() {
           <ul className="flex flex-wrap gap-x-7 gap-y-2 font-marker text-lg">
             {NAV.map((item) => (
               <li key={item.href}>
-                <a href={item.href} className="underline decoration-sprout decoration-2 underline-offset-4">
+                <a href={item.href} className="inline-flex min-h-11 items-center underline decoration-sprout decoration-2 underline-offset-4">
                   {item.label}
                 </a>
               </li>
             ))}
             <li>
-              <a href={whatsappLink()} className="underline decoration-sprout decoration-2 underline-offset-4">
+              <a href={whatsappLink()} className="inline-flex min-h-11 items-center underline decoration-sprout decoration-2 underline-offset-4">
                 WhatsApp
               </a>
             </li>
@@ -72,13 +72,14 @@ export function Footer() {
   );
 }
 
-/** Phone-only floating shortcut to WhatsApp; desktop keeps the header button in view instead. */
+/** Floating shortcut to WhatsApp on touch screens (CSS hides it for mouse and trackpad); it steps
+ *  aside while the hero button is on screen and while the stage is pinned. */
 export function FloatingWhatsApp() {
   return (
     <a
       href={whatsappLink()}
       aria-label="Falar com a Hortinbox no WhatsApp"
-      className="btn-go fixed right-4 bottom-4 z-20 size-16 rounded-full! p-0 md:hidden"
+      className="btn-go fab-wa fixed right-4 bottom-4 z-20 size-16 rounded-full! p-0"
     >
       <WhatsAppGlyph className="size-8" />
     </a>
