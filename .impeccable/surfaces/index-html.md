@@ -19,7 +19,7 @@ related_targets: []
 
 THESIS: A friend sketches, with a marker over the real kit photo, how to grow food from zero: every section is an explained drawing, not a sales block. It refuses the eco-D2C template (split hero with stock leaves, badge row, equal icon cards).
 
-OWN-WORLD: White notebook paper with a faint green graph grid, black marker ink (#1a1a1a), sprout green #82d85a as the only highlighter that means "tap" and the WhatsApp fill, forest #1c7434 for green text, beet magenta #c2185b as the second highlighter for emphasis only. Kalam marker lettering for headings and annotations, Archivo for body. Boxes have wobbly hand-ruled ink borders with a sketched offset outline; numbered comic panels; a sprout-in-a-box mascot ("Brotinho") drawn as line art.
+OWN-WORLD: Pale leaf-tinted notebook paper with faint marker-drawn leaves, canopy light pools, swaying leafy branches at corners and leafy vines between bands, black marker ink (#1a1a1a), sprout green #82d85a as the only highlighter that means "tap" and the WhatsApp fill, forest #1c7434 for green text, beet magenta #c2185b as the second highlighter for emphasis only. Kalam marker lettering for headings and annotations, Archivo for body. Boxes have wobbly hand-ruled ink borders with a sketched offset outline; numbered comic panels; a sprout-in-a-box mascot ("Brotinho") drawn as line art.
 
 STORY: The visitor sees what is in the box, learns it takes no skill and that someone helps them until harvest, meets a real Mato Grosso startup with a purpose (healthier, more accessible, educational food), chooses one-off kit or monthly plan, and opens WhatsApp.
 

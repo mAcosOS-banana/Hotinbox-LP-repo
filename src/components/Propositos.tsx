@@ -1,4 +1,5 @@
 import { Draw } from "./doodles";
+import { Ramo } from "./Folhagem";
 
 const NOTES = [
   {
@@ -24,7 +25,8 @@ const NOTES = [
 export function Propositos() {
   return (
     <Draw as="section" id="proposito" aria-labelledby="proposito-title" threshold={0.2}
-      className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-32">
+      className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-32">
+      <Ramo seed={2} className="absolute top-16 right-6 hidden w-52 xl:block" />
       <h2 id="proposito-title" className="max-w-5xl font-marker text-[clamp(2.25rem,5.5vw,4rem)] leading-[1.06] font-bold">
         Comer bem não devia ser <span className="hl hl-beet">difícil</span>, <span className="hl hl-beet">caro</span> nem{" "}
         <span className="hl hl-beet">longe de casa</span>.

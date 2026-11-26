@@ -1,5 +1,6 @@
 import { Arrow, Draw, Num, Tick, WhatsAppGlyph } from "./doodles";
 import { NAV, whatsappLink } from "../lib/site";
+import { Ramo } from "./Folhagem";
 
 /** Points on the kit photo (fractions of the image) and the label that names them. */
 const PARTS = [
@@ -126,7 +127,8 @@ function AnnotatedKit() {
 export function Hero() {
   return (
     <Draw as="section" id="topo" aria-labelledby="hero-title" threshold={0.15}
-      className="mx-auto grid max-w-7xl gap-12 px-5 pt-10 pb-20 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-6 lg:pt-10 lg:pb-12">
+      className="relative mx-auto grid max-w-7xl gap-12 px-5 pt-10 pb-20 sm:px-8 lg:grid-cols-12 lg:items-center lg:gap-6 lg:pt-10 lg:pb-12">
+      <Ramo seed={3} className="absolute top-20 -left-[7.5rem] hidden w-32 -scale-x-100 min-[1400px]:block" />
       <div className="lg:col-span-5">
         <h1 id="hero-title" className="font-marker text-[clamp(3rem,9vw,4.6rem)] leading-[0.98] font-bold tracking-[-0.01em]">
           Tudo que você precisa em uma <span className="hl">caixa.</span>

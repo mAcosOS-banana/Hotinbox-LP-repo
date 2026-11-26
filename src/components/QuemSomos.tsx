@@ -1,5 +1,6 @@
 import { Brotinho } from "./Brotinho";
 import { Arrow, Draw, Num, Star, Swipe } from "./doodles";
+import { Ramo } from "./Folhagem";
 
 const PANELS = [
   {
@@ -44,8 +45,8 @@ export function QuemSomos() {
             acessível, e ensinar no caminho.
           </p>
         </div>
-        <aside className="relative w-fit max-w-xs rotate-2 justify-self-start bg-sprout-tint px-6 pt-7 pb-6 shadow-[0_2px_3px_rgb(0_0_0/0.14)] lg:col-span-4 lg:justify-self-end">
-          <span className="tape -top-3 left-1/2 -translate-x-1/2 rotate-2" aria-hidden="true" />
+        <aside className="relative w-fit max-w-xs rotate-2 justify-self-start bg-sprout-tint px-6 pt-7 pb-6 shadow-[0_2px_3px_rgb(0_0_0/0.14)] lg:col-span-4 lg:justify-self-end pr-12">
+          <Ramo seed={1} className="absolute -top-16 -right-12 w-24 rotate-[20deg]" />
           <p className="font-marker text-lg leading-snug font-bold">
             Participamos do <span className="text-forest">Inova Cerrado</span> e do{" "}
             <span className="text-forest">Start&amp;Up</span> do Sebrae.
@@ -61,7 +62,7 @@ export function QuemSomos() {
                 <Num n={panel.n} className="text-forest" />
                 <h3 className="font-marker text-2xl font-bold">{panel.title}</h3>
               </header>
-              <Brotinho mood={panel.mood} className="mx-auto my-5 w-36 sm:w-40" />
+              <Brotinho mood={panel.mood} animated className="mx-auto my-5 w-36 sm:w-40" />
               <p className="text-lg leading-relaxed">{panel.text}</p>
             </article>
             {i < PANELS.length - 1 && (

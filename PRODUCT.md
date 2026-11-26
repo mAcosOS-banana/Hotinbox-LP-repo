@@ -21,7 +21,7 @@ Two claims, both confirmed by the founder as the main advantages:
 1. **No skill needed:** the kit comes ready, so the customer grows food without knowing how to garden.
 2. **Fits any space:** kits are customizable and adapt to different spaces (and to the customer's routine).
 
-Third differentiator, from the founders' workbook: **support from planting to harvest** for every customer. The current product focuses on **microverdes** (fast and easy to grow). Sustainability (biodegradable materials, no chemicals, the box reused as a biodegradable pot) supports the brand but is secondary.
+Third differentiator, from the founders' workbook: **support from planting to harvest** for every customer. The current product focuses on **microverdes** (fast and easy to grow). **Speed is part of the promise:** microgreens go from seed to harvest quickly, so the customer sees results soon after the kit arrives; the page should make growing feel quick as well as easy, without stating a number of days the founders have not confirmed. Sustainability (biodegradable materials, no chemicals, the box reused as a biodegradable pot) supports the brand but is secondary.
 
 ## Operating Context
 
@@ -59,3 +59,4 @@ Third differentiator, from the founders' workbook: **support from planting to ha
 2. **Built for your space:** show that it fits a small apartment, a balcony or a kitchen counter, and avoid images of big gardens.
 3. **One clear next step:** every path leads to a WhatsApp conversation. Don't add competing calls to action.
 4. **Local and real:** use real kits, real customers and a real delivery area, with nothing invented.
+5. **Quick results:** microgreens grow fast. Show that the first harvest comes soon and that the path from WhatsApp to harvest is short, without promising specific timings.

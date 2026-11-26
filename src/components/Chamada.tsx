@@ -1,4 +1,6 @@
+import type { CSSProperties } from "react";
 import { Brotinho } from "./Brotinho";
+import { Ramo } from "./Folhagem";
 import { Draw, WhatsAppGlyph } from "./doodles";
 import { NAV, whatsappLink } from "../lib/site";
 
@@ -6,22 +8,28 @@ export function Chamada() {
   return (
     <Draw as="section" id="contato" aria-labelledby="contato-title" threshold={0.3}
       className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:pb-32">
-      <div className="sketch grid items-center gap-10 bg-white px-6 py-12 sm:px-12 md:grid-cols-[auto_1fr] md:gap-14 lg:px-20 lg:py-16">
-        <Brotinho mood="wave" className="mx-auto w-44 sm:w-56 md:w-64" />
+      <div className="chamada-box sketch grid items-center gap-10 bg-white px-6 py-12 sm:px-12 md:grid-cols-[auto_1fr] md:gap-14 lg:px-20 lg:py-16">
+        <Ramo seed={1} className="absolute -top-9 -right-5 w-28 sm:-right-8 sm:w-40 lg:w-52" />
+        <div className="brotinho-host relative mx-auto w-44 sm:w-56 md:w-64">
+          <Brotinho mood="wave" leafTarget className="w-full" />
+          <svg viewBox="0 0 100 100" className="cta-sparkle pointer-events-none absolute -top-[6%] left-[52%] w-[46%]" fill="none" stroke="var(--color-beet)" strokeWidth={4} strokeLinecap="round" aria-hidden="true">
+            <path d="M50 8v14M78 22l-9 10M92 50H78M22 22l9 10M8 50h14" />
+          </svg>
+        </div>
         <div>
-          <h2 id="contato-title" className="font-marker text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.98] font-bold">
+          <h2 id="contato-title" style={{ "--i": 0 } as CSSProperties} className="cta-pop font-marker text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.98] font-bold">
             Bora começar a sua <span className="hl">horta?</span>
           </h2>
-          <p className="mt-5 max-w-[36rem] text-xl leading-relaxed">
+          <p style={{ "--i": 1 } as CSSProperties} className="cta-pop mt-5 max-w-[36rem] text-xl leading-relaxed">
             Chame a gente no WhatsApp, conte seu espaço e sua rotina, e receba o kit certo para você.
           </p>
           <div className="mt-9">
-            <a href={whatsappLink()} className="btn-go w-full text-2xl sm:w-auto">
+            <a href={whatsappLink()} style={{ "--i": 2 } as CSSProperties} className="cta-pop cta-pop-btn btn-go w-full text-2xl sm:w-auto">
               <WhatsAppGlyph />
               Quero meu kit
             </a>
           </div>
-          <p className="mt-8 text-base text-ink-soft sm:text-lg">
+          <p style={{ "--i": 3 } as CSSProperties} className="cta-pop mt-8 text-base text-ink-soft sm:text-lg">
             Entregamos em cidades de Mato Grosso. O frete é combinado pelo WhatsApp.
           </p>
         </div>
@@ -32,7 +40,7 @@ export function Chamada() {
 
 export function Footer() {
   return (
-    <footer className="border-t-[2.5px] border-ink bg-white/70">
+    <footer className="vine-top bg-white/70">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 pt-10 pb-28 sm:px-8 md:flex-row md:items-center md:justify-between md:pb-10">
         <div className="flex items-center gap-4">
           <img src="/assets/icons/logo-im.svg" alt="Hortinbox" width={159} height={128} loading="lazy" className="h-16 w-auto" />
