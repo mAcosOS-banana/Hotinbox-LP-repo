@@ -10,7 +10,14 @@
     />
     <meta name="theme-color" content="#f9fbf4" />
     <link rel="icon" href="/assets/icons/logo-im.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="/assets/images/main-image.webp" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/main-image.webp"
+      imagesrcset="/assets/images/main-image-640.webp 640w, /assets/images/main-image-900.webp 900w, /assets/images/main-image.webp 1200w"
+      imagesizes="(min-width: 1024px) 520px, (min-width: 640px) 576px, calc(100vw - 40px)"
+      fetchpriority="high"
+    />
   </head>
   <body>
     <div id="root"></div>

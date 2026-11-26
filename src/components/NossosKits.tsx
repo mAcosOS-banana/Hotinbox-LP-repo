@@ -17,7 +17,7 @@ const STEPS = [
   { n: 1, title: "Chame no WhatsApp", text: "Conte quanto espaço você tem e como é a sua rotina.", mood: "chat" as const },
   { n: 2, title: "Receba o kit", text: "Montamos o kit pensando em você e enviamos para a sua cidade.", mood: "wave" as const },
   { n: 3, title: "Plante", text: "Siga o manual passo a passo, mesmo que nunca tenha plantado nada.", mood: "idea" as const },
-  { n: 4, title: "Colha", text: "Microverdes crescem rápido, e a gente acompanha até a colheita.", mood: "happy" as const },
+  { n: 4, title: "Colha em até 7 dias", text: "Microverdes crescem rápido, e a gente acompanha até a colheita.", mood: "happy" as const },
 ];
 
 const PLANS = [
@@ -49,7 +49,7 @@ export function NossosKits() {
               Hoje o nosso foco são as <strong className="font-bold text-forest">microverdes</strong>: fáceis, rápidas de
               cultivar e cheias de sabor. Cada kit pode ser personalizado para o seu espaço.
             </p>
-            <figure className="relative mt-10 hidden w-[85%] rotate-2 lg:block">
+            <figure className="relative mt-10 w-full max-w-md rotate-2 lg:w-[85%] lg:max-w-none">
               <img
                 src="/assets/images/microverdes.webp"
                 alt="Microverdes brotando numa caixa sobre a bancada"
@@ -59,11 +59,11 @@ export function NossosKits() {
                 className="aspect-[4/3] w-full rounded-[6px] border-[2.5px] border-ink object-cover"
               />
               <span className="tape -top-3 left-8 -rotate-6" aria-hidden="true" />
-              <figcaption className="mt-3 font-marker text-lg">microverdes brotando na caixa</figcaption>
-              <p className="absolute -top-14 -right-24 w-40 -rotate-3 font-marker text-xl leading-tight font-bold text-forest">
+              <figcaption className="mt-3 font-marker text-lg">microverdes: hortaliças colhidas ainda brotinhos, aqui brotando na caixa</figcaption>
+              <p className="absolute -top-14 -right-24 hidden w-40 -rotate-3 font-marker text-xl leading-tight font-bold text-forest lg:block">
                 fácil e rápido de cultivar
               </p>
-              <Arrow viewBox="0 0 80 70" className="absolute -top-4 -right-10 h-16 w-20 text-forest" halo d={0.6}
+              <Arrow viewBox="0 0 80 70" className="absolute -top-4 -right-10 hidden h-16 w-20 text-forest lg:block" halo d={0.6}
                 body="M70 6C56 22 40 38 16 56" head="M14 40l1 17 17-3" />
             </figure>
           </div>
@@ -71,11 +71,11 @@ export function NossosKits() {
           <div className="relative lg:col-span-6 lg:col-start-7">
             <Ramo seed={2} className="absolute -top-16 -right-4 z-10 w-24 rotate-6 sm:w-32" />
             <div className="sketch ruled -rotate-1 px-6 pt-5 pb-8 sm:px-10">
-              <h3 className="font-marker text-[1.75rem] leading-[2.25rem] font-bold">O que vem na caixa</h3>
+              <h3 className="font-marker text-3xl leading-[2.25rem] font-bold">O que vem na caixa</h3>
               <ul className="mt-[2.25rem]">
                 {CONTENTS.map((item, i) => (
-                  <li key={item} className="flex h-[2.25rem] items-center gap-3 font-marker text-xl sm:text-[1.375rem]">
-                    <Tick d={0.15 * i} className="size-6" />
+                  <li key={item} className="flex min-h-[2.25rem] items-start gap-3 font-marker text-xl leading-[2.25rem] sm:text-[1.375rem]">
+                    <Tick d={0.15 * i} className="mt-1.5 size-6" />
                     {item}
                   </li>
                 ))}
@@ -119,9 +119,10 @@ export function NossosKits() {
           <h3 className="font-marker text-3xl leading-tight font-bold sm:text-4xl">Escolha como quer cultivar</h3>
           <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-12">
             {PLANS.map((plan, i) => (
-              <article key={plan.name} className={`sketch relative flex flex-col bg-white p-7 sm:p-9 ${i === 1 ? "lg:rotate-1" : "lg:-rotate-1"}`}>
+              <article key={plan.name} className={`sketch relative flex flex-col bg-white p-5 min-[360px]:p-7 sm:p-9 ${i === 1 ? "lg:rotate-1" : "lg:-rotate-1"}`}>
                 {i === 1 && (
-                  <p className="absolute -top-7 right-4 flex rotate-3 items-center gap-1.5 bg-paper px-2 font-marker text-xl font-bold text-beet sm:right-8">
+                  <p className="absolute -top-7 right-4 flex rotate-3 items-center gap-1.5 bg-beet-tint px-2.5 py-0.5 font-marker text-xl font-bold text-beet shadow-[0_2px_3px_rgb(0_0_0/0.14)] sm:right-8">
+                    <span className="tape -top-3 left-1/2 w-10 -translate-x-1/2 -rotate-2" aria-hidden="true" />
                     <Star className="size-6" d={0.5} />
                     chega todo mês
                   </p>
@@ -138,7 +139,7 @@ export function NossosKits() {
                     </li>
                   ))}
                 </ul>
-                <a href={whatsappLink(plan.message)} className="btn-go mt-8 self-start text-xl">
+                <a href={whatsappLink(plan.message)} className="btn-go mt-8 self-stretch px-3 text-base min-[360px]:px-[1.6rem] min-[360px]:text-lg sm:self-start sm:text-xl">
                   <WhatsAppGlyph className="size-6" />
                   Pedir {i === 1 ? "o plano mensal" : "meu kit"}
                 </a>

@@ -47,18 +47,32 @@
       var(--veg-tile-a),
       var(--veg-tile-b),
       radial-gradient(ellipse 38rem 26rem at 8% 6rem, rgb(130 216 90 / 0.22), transparent 70%),
-      radial-gradient(ellipse 34rem 30rem at 96% 32rem, rgb(230 245 220 / 0.95), transparent 70%),
-      radial-gradient(ellipse 40rem 28rem at 12% 62%, rgb(130 216 90 / 0.18), transparent 70%),
-      radial-gradient(ellipse 36rem 30rem at 92% 88%, rgb(130 216 90 / 0.18), transparent 70%);
-    /* Two different tiles at unrelated sizes, offset, so the repeat never reads as a grid. */
-    background-size: 440px 440px, 520px 520px, auto, auto, auto, auto;
-    background-position: 0 0, 217px 281px, 0 0, 0 0, 0 0, 0 0;
-    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      radial-gradient(ellipse 34rem 30rem at 96% 32rem, rgb(230 245 220 / 0.95), transparent 70%);
+    /* Two different tiles at unrelated sizes, offset, so the repeat never reads as a grid. The two
+       canopy-light pools sit over the hero; the later light is placed by the sections it belongs to
+       (the stage and the closing box), not by page percentage. */
+    background-size: 440px 440px, 520px 520px, auto, auto;
+    background-position: 0 0, 217px 281px, 0 0, 0 0;
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
+  }
+
+  /* Branches hang past the content edge; clip them here so phones never get a sideways pan
+     (overflow on body alone still lets the mobile layout viewport grow). */
+  main {
+    overflow-x: clip;
+  }
+
+  /* Phones: the tiles at their native size, so the vegetables read as doodles, not cropped shapes. */
+  @media (width < 40em) {
+    body {
+      background-size: 320px 320px, 380px 380px, auto, auto;
+      background-position: 0 0, 158px 204px, 0 0, 0 0;
+    }
   }
 
   ::selection {
@@ -320,65 +334,78 @@
 
 /* Jornada do broto: a plantinha que cresce com a rolagem e a folha que cai até o Brotinho. */
 /* Plant size and how much it grows at centre stage; the stage phrases anchor to it. */
+/* The small sunk box stays until the page has a gutter wide enough to hold the 96px box beside
+   the text (1440px: container 1280 + 32px padding leaves 112px), so it never sits on body text on
+   tablets, landscape phones or laptops; it just gets a bigger stage scale. */
 .jornada {
-  --plant-w: 64px;
-  --plant-cs: 2.4;
+  --plant-w: 56px;
+  --plant-cs: 2.75;
 }
 @media (width >= 48em) {
   .jornada {
+    --plant-cs: 4.6;
+  }
+}
+@media (width >= 90em) {
+  .jornada {
     --plant-w: 96px;
-    --plant-cs: 1.7;
+    --plant-cs: 2.8;
   }
 }
 .jornada-plant {
   --pw: var(--plant-w, 64px);
   /* Drawing aspect (158 / 170). */
   --ph: calc(var(--pw) * 0.93);
-  --pad: calc(20px + env(safe-area-inset-bottom, 0px));
+  /* Phones: the box rests with its lower half sunk below the bottom edge, so only its lid and the sprout
+     sit over the text column. */
+  --pad: calc(env(safe-area-inset-bottom, 0px) - var(--ph) * 0.22);
+  --left: 12px;
   position: fixed;
-  /* Rests a little above the bottom edge, then rises with --c until its centre meets the screen's. */
-  bottom: calc(var(--pad) * (1 - var(--c, 0)) + (50dvh - var(--ph) * var(--plant-cs, 1.7) / 2) * var(--c, 0));
-  left: calc(16px + (50vw - 16px - var(--pw) / 2) * var(--c, 0));
+  bottom: var(--pad);
+  left: var(--left);
   z-index: 25;
   width: var(--pw);
   pointer-events: none;
-  translate: 0 calc(var(--s, 0) * 110%);
-  /* Grows to centre stage: a bigger plant over the empty stage. */
-  scale: calc(1 + var(--c, 0) * (var(--plant-cs, 1.7) - 1));
+  /* JornadaBroto moves it with translate, rotate and scale only (never layout), from eased
+     progress values smoothed against the scroll: an arc from the corner to the centre (it lifts,
+     then glides), growth, a lean against its travel, squash and stretch, and the sink at the end.
+     No will-change: a pinned compositor layer would keep the 56px raster and blur the plant at
+     2.75x on centre stage; without it the browser repaints the drawing sharp at every scale. */
   transform-origin: 50% 100%;
-  opacity: calc(1 - var(--s, 0));
 }
 .jornada-plant svg {
   display: block;
   width: 100%;
   height: auto;
 }
-@media (width >= 48em) {
+@media (width >= 90em) {
   .jornada-plant {
     --pad: 28px;
+    --left: 16px;
   }
-}
-/* The sprout starts hidden inside the box and rises out of it as the page scrolls. */
-.jornada-sprout {
-  translate: 0 calc((1 - min(1, var(--g, 0) / 0.86)) * 58px);
 }
 .jornada-seed-l,
 .jornada-tip {
   transform-box: fill-box;
-  /* The seed leaves open once the stem has reached the top. */
-  scale: clamp(0, calc((var(--g, 0) - 0.86) / 0.14), 1);
 }
+/* On the journey plant JornadaBroto unfolds them from a closed pair, quivers the right one and
+   hides it when it lets go; the stage's still plant shows them open. */
 .jornada-seed-l {
   transform-origin: 100% 60%;
 }
 .jornada-tip {
   transform-origin: 0% 100%;
-  opacity: calc(1 - var(--rel, 0));
 }
 /* Empty stage before the closing section: exists only while the journey runs. */
 /* Palco "Da caixa para o prato". Sem a jornada: uma faixa compacta, frases e o broto parados. */
 .palco {
   padding: 5rem 1.25rem;
+  /* Canopy light falls on the stage, so the plant stands in it. */
+  background: radial-gradient(ellipse 34rem 26rem at 50% 50%, rgb(130 216 90 / 0.2), transparent 70%);
+}
+/* …and on the closing box, behind Brotinho. */
+#contato {
+  background: radial-gradient(ellipse 40rem 28rem at 50% 45%, rgb(130 216 90 / 0.18), transparent 70%);
 }
 .palco-inner {
   display: grid;
@@ -404,7 +431,6 @@
   display: none;
 }
 .palco-static-plant {
-  --g: 1;
   width: 9rem;
   overflow: visible;
 }
@@ -480,14 +506,14 @@
   }
   .jornada .palco-p1 {
     left: auto;
-    right: calc(50% + 150px);
+    right: calc(50% + var(--half) + 2rem);
     bottom: auto;
     top: 30%;
     transform: none;
     text-align: right;
   }
   .jornada .palco-p2 {
-    left: calc(50% + 150px);
+    left: calc(50% + var(--half) + 2rem);
     top: 36%;
     transform: none;
     text-align: left;
@@ -518,15 +544,11 @@
   opacity: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
-  #contato.cta-pending .cta-pop {
-    opacity: 0;
-    translate: 0 28px;
-    scale: 0.92;
-  }
   #contato.cta-pending .leaf-r {
     opacity: 0;
   }
-  /* Encaixe: a folha estala no lugar, o Brotinho amassa, estica num pulinho e o conteúdo entra quicando. */
+  /* Encaixe: a folha estala no lugar, o Brotinho amassa, estica num pulinho e o conteúdo, que já
+     estava visível, dá um pulinho junto. Nenhum texto fica escondido esperando a folha. */
   #contato.cta-docked .leaf-r {
     transform-box: fill-box;
     transform-origin: 0% 100%;
@@ -547,6 +569,11 @@
     animation:
       cta-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) calc(0.5s + var(--i, 0) * 0.14s) both,
       cta-wiggle 0.7s ease-in-out 1.5s;
+  }
+  /* Focus got there first: the content is simply there, no bounce-in. */
+  #contato.cta-instant .cta-pop,
+  #contato.cta-instant .cta-pop-btn {
+    animation: none;
   }
 }
 @keyframes leaf-snap {
@@ -569,8 +596,8 @@
   100% { opacity: 0; scale: 1.3; }
 }
 @keyframes cta-pop {
-  0% { opacity: 0; translate: 0 28px; scale: 0.9; }
-  100% { opacity: 1; translate: 0 0; scale: 1; }
+  0%, 100% { translate: 0 0; scale: 1; }
+  40% { translate: 0 -6px; scale: 1.035; }
 }
 @keyframes cta-wiggle {
   0%, 100% { rotate: 0deg; }
@@ -619,11 +646,6 @@
 .moita-right.moita-backing {
   right: -7%;
 }
-.moita-leaf {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: moita-flick 1s cubic-bezier(0.16, 1, 0.3, 1) var(--ld, 0.2s) forwards;
-}
 @keyframes moita-part-left {
   0% { translate: 0 0; rotate: 0deg; }
   12% { translate: 1.5% 0; rotate: 0.8deg; }
@@ -634,14 +656,214 @@
   12% { translate: -1.5% 0; rotate: -0.8deg; }
   100% { translate: 145% 6%; rotate: 12deg; }
 }
-@keyframes moita-flick {
-  0% { rotate: 0deg; }
-  25% { rotate: calc(var(--flick) * -0.25); }
-  100% { rotate: var(--flick); }
-}
 @keyframes moita-out {
   0%, 85% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* While the hero's WhatsApp button is on screen, the fixed extras step aside: the journey's
+   kraft box and the phone's floating WhatsApp button would otherwise sit on it or on its ticks.
+   `hero-cta-in` only exists with JS (Hero.tsx), so without it nothing is hidden. */
+.jornada-plant > svg {
+  transition:
+    opacity 0.35s var(--ease-out-expo),
+    translate 0.5s var(--ease-out-expo);
+}
+.hero-cta-in .jornada-plant > svg {
+  opacity: 0;
+  translate: 0 35%;
+}
+.fab-wa {
+  transition:
+    opacity 0.3s var(--ease-out-expo),
+    translate 0.3s var(--ease-out-expo),
+    visibility 0s linear 0s,
+    box-shadow 0.25s var(--ease-out-expo);
+}
+.hero-cta-in .fab-wa,
+.palco-in .fab-wa {
+  opacity: 0;
+  translate: 0 1rem;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease-in,
+    translate 0.2s ease-in,
+    visibility 0s linear 0.2s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-in .fab-wa,
+  .palco-in .fab-wa {
+    translate: none;
+  }
+}
+/* The floating button follows the input, not the width: any touch screen gets it (landscape phones
+   and tablets included, where the header button scrolls away), mouse-and-trackpad screens don't. */
+@media (hover: hover) and (pointer: fine) {
+  .fab-wa {
+    display: none;
+  }
+}
+.footer-inner {
+  padding-bottom: 7rem;
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer-inner {
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Short landscape screens (phones on their side): the hero goes two-column so the button and the
+   photo share the first screen, and the stage lays its phrases beside a smaller plant so the
+   heading stays on screen while it is pinned. */
+@media (orientation: landscape) and (max-height: 32rem) and (width < 64em) {
+  header {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  header img {
+    height: 3rem;
+  }
+  #topo {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    padding-top: 1rem;
+  }
+  #topo > .hero-copy {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+    align-self: start;
+  }
+  #topo > .hero-kit {
+    grid-column: 7 / span 6;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+  #topo > .hero-ticks {
+    grid-column: 1 / span 6;
+    grid-row: 2;
+    align-self: start;
+  }
+  #topo h1 {
+    font-size: 2.25rem;
+  }
+  #topo .hero-lead {
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+  }
+  #topo #hero-cta {
+    margin-top: 1rem;
+    width: auto;
+  }
+  .jornada {
+    --plant-cs: 1.9;
+  }
+  .jornada .palco-phrase {
+    max-width: 32vw;
+    font-size: clamp(1.5rem, 3.6vw, 2.25rem);
+  }
+  .jornada .palco-p1 {
+    left: auto;
+    right: calc(50% + var(--half) + 1.5rem);
+    bottom: auto;
+    top: 22%;
+    transform: none;
+    text-align: right;
+  }
+  .jornada .palco-p2 {
+    left: calc(50% + var(--half) + 1.5rem);
+    top: 30%;
+    transform: none;
+    text-align: left;
+  }
+  .jornada .palco-p3 {
+    top: calc(50% + var(--half) + 0.75rem);
+    font-size: clamp(1.75rem, 4.4vw, 2.75rem);
+  }
+}
+
+/* Vento no broto do ponto final: um balanço leve o tempo todo e, a cada 8s, uma rajada que enverga
+   o caule a partir da semente e faz as duas folhas se cruzarem, voltando num amortecimento.
+   Começa depois do desenho (2s); pausa com o título fora da tela; parado sob movimento reduzido. */
+@media (prefers-reduced-motion: no-preference) {
+  .seed-sway,
+  .seed-leaf-l,
+  .seed-leaf-r {
+    transform-box: view-box;
+    animation-duration: 8s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  .seed-sway {
+    transform-origin: 10px 52px;
+    animation-name: seed-gust;
+  }
+  .seed-leaf-l {
+    transform-origin: 21px 25px;
+    animation-name: seed-leaf-l;
+  }
+  .seed-leaf-r {
+    transform-origin: 22px 22px;
+    animation-name: seed-leaf-r;
+  }
+  .hero-title-out .seed-sway,
+  .hero-title-out .seed-leaf-l,
+  .hero-title-out .seed-leaf-r {
+    animation-play-state: paused;
+  }
+}
+@keyframes seed-gust {
+  0%, 100% { rotate: 0deg; }
+  10% { rotate: 2deg; }
+  20% { rotate: -1.5deg; }
+  30% { rotate: 1.5deg; }
+  40% { rotate: 0deg; }
+  45% { rotate: 14deg; }
+  49% { rotate: 9deg; }
+  53% { rotate: 17deg; }
+  59% { rotate: -7deg; }
+  65% { rotate: 5deg; }
+  71% { rotate: -2.5deg; }
+  78% { rotate: 1deg; }
+  86% { rotate: 0deg; }
+}
+/* As folhas se cruzam em X no pico do segundo empurrão (52%): a esquerda passa da vertical no
+   sentido horário, a direita sobe no anti-horário e fica por cima; descruzam no ricochete e cruzam
+   de novo, mais de leve, aos 65%. */
+@keyframes seed-leaf-l {
+  0%, 100% { rotate: 0deg; }
+  15% { rotate: 4deg; }
+  28% { rotate: -3deg; }
+  40% { rotate: 0deg; }
+  45% { rotate: 30deg; }
+  48% { rotate: 22deg; }
+  52% { rotate: 80deg; }
+  55% { rotate: 36deg; }
+  58.5% { rotate: -2deg; }
+  61.5% { rotate: 10deg; }
+  65% { rotate: 62deg; }
+  69% { rotate: 8deg; }
+  74% { rotate: -4deg; }
+  82% { rotate: 0deg; }
+}
+@keyframes seed-leaf-r {
+  0%, 100% { rotate: 0deg; }
+  12% { rotate: -3deg; }
+  25% { rotate: 3deg; }
+  40% { rotate: 0deg; }
+  43% { rotate: 14deg; }
+  45.5% { rotate: -8deg; }
+  48% { rotate: -40deg; }
+  52% { rotate: -96deg; }
+  55% { rotate: -32deg; }
+  58.5% { rotate: 10deg; }
+  61.5% { rotate: -12deg; }
+  65% { rotate: -100deg; }
+  69% { rotate: -14deg; }
+  74% { rotate: 4deg; }
+  80% { rotate: 0deg; }
 }
 
 /* Desenho ao entrar na tela: só quando há JS e o movimento é permitido.
@@ -660,5 +882,15 @@
   }
   .motion [data-draw="on"] .hl {
     background-size: 100% 100%;
+  }
+  /* The headline's full-stop sprout: leaf fills arrive once their outlines are drawn. */
+  .motion [data-draw] .sprout-fill {
+    fill-opacity: 0;
+    transition:
+      stroke-dashoffset 1.1s var(--ease-out-expo) var(--d, 0s),
+      fill-opacity 0.6s ease-out calc(var(--d, 0s) + 0.45s);
+  }
+  .motion [data-draw="on"] .sprout-fill {
+    fill-opacity: 1;
   }
 }

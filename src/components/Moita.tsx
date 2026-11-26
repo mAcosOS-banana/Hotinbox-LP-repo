@@ -1,18 +1,22 @@
-import { useCallback, useEffect, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 /**
  * Entry animation: a marker-drawn bush (leaves, beet greens, microgreen sprouts) covers the
  * screen, rustles, and parts to the sides to reveal the page.
- * Runs once per visit, never under reduced motion, and any click, key, touch or scroll skips it.
+ * Runs once a week per device, never under reduced motion, and any click, key, touch or scroll skips it.
  */
 
 const SEEN_KEY = "hortinbox:moita";
+/** The bush plays again only after a week: in-app browsers (Instagram, WhatsApp) start a new
+ *  session on every visit, and a scroll-locking intro there would greet the visitor every time. */
+const REPLAY_AFTER_MS = 7 * 24 * 60 * 60 * 1000;
 
 function shouldPlay(): boolean {
   if (typeof window === "undefined") return false;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
   try {
-    return sessionStorage.getItem(SEEN_KEY) !== "1";
+    const seen = Number(localStorage.getItem(SEEN_KEY));
+    return !seen || Date.now() - seen > REPLAY_AFTER_MS;
   } catch {
     return true;
   }
@@ -35,7 +39,7 @@ const BEET_VEINS = "M0 8V-84M-1-26l-13-12M-1-26l13-12M-2-50l-10-10M-2-50l10-10";
 /** Back-to-front: deep greens first so the front leaves read brightest. */
 const FILLS = ["#1c7434", "#5fb83a", "#82d85a", "#a4d47c", "#e6f5dc"] as const;
 
-type Piece = { front: boolean; kind: "leaf" | "beet" | "sprout" | "radish"; x: number; y: number; rot: number; scale: number; fill: string; flick: number; delay: number };
+type Piece = { kind: "leaf" | "beet" | "sprout" | "radish"; x: number; y: number; rot: number; scale: number; fill: string };
 
 function buildHalf(seed: number): Piece[] {
   const r = rng(seed);
@@ -49,7 +53,6 @@ function buildHalf(seed: number): Piece[] {
         const beet = layer >= 2 && r() < 0.12;
         const radish = !beet && layer >= 3 && r() < 0.1;
         pieces.push({
-          front: layer >= 3,
           kind: beet ? "beet" : radish ? "radish" : "leaf",
           x: jx,
           y: jy,
@@ -57,15 +60,18 @@ function buildHalf(seed: number): Piece[] {
           rot: 35 + r() * 80,
           scale: 2.1 + r() * 1.5 - layer * 0.12,
           fill: beet ? "#5fb83a" : fill,
-          flick: -(14 + r() * 26),
-          delay: 0.18 + r() * 0.32,
         });
+        // Two draws once spent on per-leaf flicks; kept so the bush keeps its exact layout.
+        r();
+        r();
       }
     }
   });
   // Microgreen sprouts along the bottom edge.
   for (let x = 20; x < 640; x += 70) {
-    pieces.push({ front: true, kind: "sprout", x: x + (r() - 0.5) * 30, y: 990, rot: (r() - 0.5) * 16, scale: 1.6 + r() * 0.8, fill: "#82d85a", flick: -(8 + r() * 10), delay: 0.12 + r() * 0.2 });
+    pieces.push({ kind: "sprout", x: x + (r() - 0.5) * 30, y: 990, rot: (r() - 0.5) * 16, scale: 1.6 + r() * 0.8, fill: "#82d85a" });
+    r();
+    r();
   }
   return pieces;
 }
@@ -87,37 +93,35 @@ function Half({ side, pieces }: { side: "left" | "right"; pieces: Piece[] }) {
       <g transform={side === "right" ? "translate(600 0) scale(-1 1)" : undefined}>
       {pieces.map((p, i) => (
         <g key={i} transform={`translate(${p.x} ${p.y}) rotate(${p.rot}) scale(${p.scale})`}>
-          <g className={p.front ? "moita-leaf" : undefined} style={{ "--flick": `${p.flick}deg`, "--ld": `${p.delay}s` } as CSSProperties}>
-            {p.kind === "leaf" && (
-              <>
-                <path d={LEAF} fill={p.fill} strokeWidth={1.6} />
-                <path d={VEINS} strokeWidth={0.9} stroke={p.fill === "#1c7434" ? "#e6f5dc" : "#1a1a1a"} />
-              </>
-            )}
-            {p.kind === "beet" && (
-              <>
-                <path d="M0 0v22" stroke="#c2185b" strokeWidth={4} />
-                <path d={BEET} fill={p.fill} strokeWidth={1.6} />
-                <path d={BEET_VEINS} stroke="#c2185b" strokeWidth={1.6} />
-              </>
-            )}
-            {p.kind === "radish" && (
-              <>
-                <path d="M0-2c-6-16-20-24-32-20 1 14 15 22 32 20z" fill="#82d85a" strokeWidth={1.6} />
-                <path d="M1-2c3-18 16-28 30-26 1 14-12 26-30 26z" fill="#5fb83a" strokeWidth={1.6} />
-                <path d="M0 0c-15 0-24 12-21 25 2 11 12 19 21 25 9-6 19-14 21-25 3-13-6-25-21-25z" fill="#e0457b" strokeWidth={1.6} />
-                <path d="M-11 10c-3 5-3 11 0 16" stroke="#ffffff" strokeWidth={1.6} />
-                <path d="M0 50c1 8-1 15-5 21" strokeWidth={1.4} />
-              </>
-            )}
-            {p.kind === "sprout" && (
-              <>
-                <path d="M0 0c-2-18 2-30 0-46" strokeWidth={1.8} />
-                <path d="M0-44c-10-12-24-10-28-4 7 9 20 9 28 4z" fill={p.fill} strokeWidth={1.6} />
-                <path d="M1-46c8-13 22-15 27-9-5 10-17 13-27 9z" fill={p.fill} strokeWidth={1.6} />
-              </>
-            )}
-          </g>
+          {p.kind === "leaf" && (
+            <>
+              <path d={LEAF} fill={p.fill} strokeWidth={1.6} />
+              <path d={VEINS} strokeWidth={0.9} stroke={p.fill === "#1c7434" ? "#e6f5dc" : "#1a1a1a"} />
+            </>
+          )}
+          {p.kind === "beet" && (
+            <>
+              <path d="M0 0v22" stroke="#c2185b" strokeWidth={4} />
+              <path d={BEET} fill={p.fill} strokeWidth={1.6} />
+              <path d={BEET_VEINS} stroke="#c2185b" strokeWidth={1.6} />
+            </>
+          )}
+          {p.kind === "radish" && (
+            <>
+              <path d="M0-2c-6-16-20-24-32-20 1 14 15 22 32 20z" fill="#82d85a" strokeWidth={1.6} />
+              <path d="M1-2c3-18 16-28 30-26 1 14-12 26-30 26z" fill="#5fb83a" strokeWidth={1.6} />
+              <path d="M0 0c-15 0-24 12-21 25 2 11 12 19 21 25 9-6 19-14 21-25 3-13-6-25-21-25z" fill="#e0457b" strokeWidth={1.6} />
+              <path d="M-11 10c-3 5-3 11 0 16" stroke="#ffffff" strokeWidth={1.6} />
+              <path d="M0 50c1 8-1 15-5 21" strokeWidth={1.4} />
+            </>
+          )}
+          {p.kind === "sprout" && (
+            <>
+              <path d="M0 0c-2-18 2-30 0-46" strokeWidth={1.8} />
+              <path d="M0-44c-10-12-24-10-28-4 7 9 20 9 28 4z" fill={p.fill} strokeWidth={1.6} />
+              <path d="M1-46c8-13 22-15 27-9-5 10-17 13-27 9z" fill={p.fill} strokeWidth={1.6} />
+            </>
+          )}
         </g>
       ))}
       </g>
@@ -130,7 +134,7 @@ export function Moita() {
 
   const finish = useCallback(() => {
     try {
-      sessionStorage.setItem(SEEN_KEY, "1");
+      localStorage.setItem(SEEN_KEY, String(Date.now()));
     } catch {
       /* private mode: the bush just plays again next visit */
     }
