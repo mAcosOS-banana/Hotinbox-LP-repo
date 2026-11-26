@@ -366,12 +366,133 @@
   opacity: calc(1 - var(--rel, 0));
 }
 /* Empty stage before the closing section: exists only while the journey runs. */
-.jornada-palco {
-  height: 0;
+/* Palco "Da caixa para o prato". Sem a jornada: uma faixa compacta, frases e o broto parados. */
+.palco {
+  padding: 5rem 1.25rem;
 }
-.jornada .jornada-palco {
-  height: 110vh;
-  height: 110svh;
+.palco-inner {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 1.75rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.palco-phrase {
+  position: relative;
+  font-family: var(--font-marker);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4.6vw, 3.25rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.palco-p3 {
+  font-size: clamp(2rem, 5.4vw, 4rem);
+}
+.palco-arrow {
+  display: none;
+}
+.palco-static-plant {
+  --g: 1;
+  width: 9rem;
+  overflow: visible;
+}
+/* Phones read top to bottom: first phrase, the plant, then the rest. */
+.palco-static-plant { order: 1; }
+.palco-p2 { order: 2; }
+.palco-p3 { order: 3; }
+@media (width >= 64em) {
+  .palco-inner {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "p1 plant p2" "p3 p3 p3";
+  }
+  .palco-p1 { grid-area: p1; justify-self: end; text-align: right; }
+  .palco-p2 { grid-area: p2; justify-self: start; text-align: left; }
+  .palco-p3 { grid-area: p3; }
+  .palco-static-plant { grid-area: plant; width: 10rem; }
+}
+
+/* Com a jornada: um palco de uma tela, as frases em volta da plantinha centralizada,
+   surgindo uma a uma conforme ela chega (--pc vem do JornadaBroto). */
+.jornada .palco {
+  position: relative;
+  height: 160vh;
+  height: 160svh;
+  padding: 0;
+}
+/* Pinned to the screen for 60svh of scroll, in step with the fixed, centred plant. */
+.jornada .palco-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: block;
+  max-width: none;
+}
+.jornada .palco-phrase {
+  --p: clamp(0, calc((var(--pc, 0) - var(--t)) / 0.25), 1);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 2.5rem);
+  opacity: var(--p);
+  translate: 0 calc((1 - var(--p)) * 26px);
+  scale: calc(0.88 + var(--p) * 0.12);
+}
+.jornada .palco-p1 { top: 22%; }
+.jornada .palco-p2 { top: 61%; }
+.jornada .palco-p3 { top: 74%; }
+.jornada:not(.jornada-done) .palco-static-plant {
+  display: none;
+}
+/* After the leaf docks, the plant rests at centre stage without its right leaf. */
+.jornada-done .palco-static-plant {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(64px * 1.7);
+}
+.jornada-done .palco-static-plant .jornada-tip {
+  display: none;
+}
+@media (width >= 48em) {
+  .jornada-done .palco-static-plant {
+    width: calc(96px * 1.7);
+  }
+}
+@media (width >= 64em) {
+  .jornada .palco-phrase {
+    max-width: 30vw;
+    text-wrap: balance;
+  }
+  .jornada .palco-p1 {
+    left: auto;
+    right: calc(50% + 150px);
+    top: 30%;
+    transform: none;
+    text-align: right;
+  }
+  .jornada .palco-p2 {
+    left: calc(50% + 150px);
+    top: 36%;
+    transform: none;
+    text-align: left;
+  }
+  .jornada .palco-p3 {
+    top: calc(50% + 130px);
+  }
+  .jornada .palco-arrow {
+    display: block;
+    position: absolute;
+    width: 80px;
+    height: 70px;
+    top: 100%;
+  }
+  .jornada .palco-p1 .palco-arrow { right: -40px; }
+  .jornada .palco-p2 .palco-arrow { left: -40px; }
 }
 .jornada-fly {
   position: fixed;

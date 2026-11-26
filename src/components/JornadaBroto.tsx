@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type Ref } from "react";
 
 /**
  * Scroll journey, Pixar-short style:
@@ -63,6 +63,7 @@ export function JornadaBroto() {
       window.clearTimeout(lingerTimer);
       fly.style.opacity = "0";
       plant.style.display = "none";
+      document.documentElement.classList.add("jornada-done");
       section.classList.remove("cta-pending");
       section.classList.add("cta-docked");
       window.removeEventListener("scroll", onScroll);
@@ -82,14 +83,16 @@ export function JornadaBroto() {
       // phones where the closing box is taller than the screen; or as far as the page scrolls.
       const headTop = target.getBoundingClientRect().top + y;
       const landY = Math.min(headTop - vh * 0.33, maxScroll - 2);
-      // The plant grows on the way down, centres while the empty stage enters,
-      // and lets the leaf go once the stage fills the screen.
-      const centreFrom = stageTop - vh * 0.75;
-      const releaseY = Math.min(stageTop + vh * 0.05, landY - vh * 0.4);
+      // The plant grows on the way down and reaches the centre as the stage pins to the screen.
+      // The stage stays pinned for a while: the phrases appear around the plant, then the
+      // right leaf lets go and falls toward the closing section.
+      const centreFrom = stageTop - vh * 0.8;
+      const releaseY = Math.min(stageTop + vh * 0.45, landY - vh * 0.4);
       const sinkFrom = releaseY;
 
       const g = clamp01(y / Math.max(centreFrom, 1));
-      const c = easeInOut(clamp01((y - centreFrom) / (releaseY - vh * 0.1 - centreFrom)));
+      const c = easeInOut(clamp01((y - centreFrom) / (stageTop - centreFrom)));
+      const phrases = clamp01((y - (stageTop - vh * 0.25)) / (vh * 0.6));
       const released = y >= releaseY;
       const sink = clamp01((y - sinkFrom) / (vh * 0.18));
 
@@ -97,6 +100,8 @@ export function JornadaBroto() {
       plant.style.setProperty("--c", c.toFixed(4));
       plant.style.setProperty("--s", sink.toFixed(4));
       plant.style.setProperty("--rel", released ? "1" : "0");
+      // The stage's phrases appear one by one as the plant reaches the centre.
+      stage.style.setProperty("--pc", phrases.toFixed(4));
 
       if (!released) {
         fly.style.opacity = "0";
@@ -160,37 +165,7 @@ export function JornadaBroto() {
   return (
     <>
       <div ref={plantRef} className="jornada-plant" aria-hidden="true">
-        <svg viewBox="0 182 170 158" fill="none" stroke="var(--color-ink)" strokeLinecap="round" strokeLinejoin="round" overflow="visible">
-          {/* the sprout rises out of the box with the scroll; the box, drawn after it, hides
-              whatever part of it is still inside */}
-          <g className="jornada-sprout">
-          <path
-            d="M86 276C82 262 90 248 86 234 84 226 86 218 86 211"
-            stroke="var(--color-forest)"
-            strokeWidth={5}
-          />
-          {/* two seed leaves open at the top: left stays, right is the one that falls */}
-          <g transform="translate(0 178)">
-          <g className="jornada-seed-l">
-            <path d={LEFT_LEAF_D} fill="var(--color-sprout)" strokeWidth={3} />
-            <path d={LEFT_LEAF_VEIN} strokeWidth={1.8} />
-          </g>
-          </g>
-          <g transform="translate(0 178)">
-          <g className="jornada-tip">
-            <path ref={tipRef} d={LEAF_D} fill="var(--color-sprout)" strokeWidth={3} />
-            <path d={LEAF_VEIN} strokeWidth={1.8} />
-          </g>
-          </g>
-          </g>
-          {/* the kraft box the plant grows from */}
-          <path d="M44 276l14-12h78l-14 12z" fill="#f1dfbe" strokeWidth={3} />
-          <path d="M122 276l14-12 1 58-15 14z" fill="#e2c595" strokeWidth={3} />
-          <path d="M126 290l8-7M126 304l8-7M126 318l8-7" strokeWidth={1.6} />
-          <path d="M44 276h78v60H44z" fill="#f1dfbe" strokeWidth={3} />
-          <path d="M62 300h42v16H62z" fill="#ffffff" strokeWidth={1.8} />
-          <path d="M70 308h26" strokeWidth={1.6} />
-        </svg>
+        <BrotoNaCaixa tipRef={tipRef} />
       </div>
       <svg
         ref={flyRef}
@@ -206,5 +181,45 @@ export function JornadaBroto() {
         <path d={LEAF_VEIN} strokeWidth={1.8} />
       </svg>
     </>
+  );
+}
+
+/**
+ * The kraft box with its microgreen sprout and two seed leaves. The scroll journey drives
+ * --g (growth) and --rel (right leaf released); set --g to 1 for the fully grown drawing.
+ */
+export function BrotoNaCaixa({ tipRef, className }: { tipRef?: Ref<SVGPathElement>; className?: string }) {
+  return (
+    <svg className={className} viewBox="0 182 170 158" fill="none" stroke="var(--color-ink)" strokeLinecap="round" strokeLinejoin="round" overflow="visible">
+      {/* the sprout rises out of the box with the scroll; the box, drawn after it, hides
+          whatever part of it is still inside */}
+      <g className="jornada-sprout">
+      <path
+        d="M86 276C82 262 90 248 86 234 84 226 86 218 86 211"
+        stroke="var(--color-forest)"
+        strokeWidth={5}
+      />
+      {/* two seed leaves open at the top: left stays, right is the one that falls */}
+      <g transform="translate(0 178)">
+      <g className="jornada-seed-l">
+        <path d={LEFT_LEAF_D} fill="var(--color-sprout)" strokeWidth={3} />
+        <path d={LEFT_LEAF_VEIN} strokeWidth={1.8} />
+      </g>
+      </g>
+      <g transform="translate(0 178)">
+      <g className="jornada-tip">
+        <path ref={tipRef} d={LEAF_D} fill="var(--color-sprout)" strokeWidth={3} />
+        <path d={LEAF_VEIN} strokeWidth={1.8} />
+      </g>
+      </g>
+      </g>
+      {/* the kraft box the plant grows from */}
+      <path d="M44 276l14-12h78l-14 12z" fill="#f1dfbe" strokeWidth={3} />
+      <path d="M122 276l14-12 1 58-15 14z" fill="#e2c595" strokeWidth={3} />
+      <path d="M126 290l8-7M126 304l8-7M126 318l8-7" strokeWidth={1.6} />
+      <path d="M44 276h78v60H44z" fill="#f1dfbe" strokeWidth={3} />
+      <path d="M62 300h42v16H62z" fill="#ffffff" strokeWidth={1.8} />
+      <path d="M70 308h26" strokeWidth={1.6} />
+    </svg>
   );
 }

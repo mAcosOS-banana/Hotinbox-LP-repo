@@ -3,6 +3,7 @@ import { Header, Hero } from "./components/Hero";
 import { JornadaBroto } from "./components/JornadaBroto";
 import { Moita } from "./components/Moita";
 import { NossosKits } from "./components/NossosKits";
+import { Palco } from "./components/Palco";
 import { Propositos } from "./components/Propositos";
 import { QuemSomos } from "./components/QuemSomos";
 
@@ -21,7 +22,7 @@ export function App() {
         <QuemSomos />
         <NossosKits />
         <Propositos />
-        <div id="palco" className="jornada-palco" aria-hidden="true" />
+        <Palco />
         <Chamada />
       </main>
       <Footer />
