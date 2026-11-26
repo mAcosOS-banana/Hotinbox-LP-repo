@@ -1,0 +1,58 @@
+.btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--brand-color-secondary);
+   border-radius: 0.5rem;
+   color: var(--ink-green);
+   box-shadow: var(--box-shadow-default);
+   font: var(--fw-bold) var(--fs-base) / var(--lh-base) 'Archivo';
+   text-align: center;
+   transition: filter 0.3s var(--ease-out), background-color 0.6s;
+   &:hover {
+      filter: brightness(0.94);
+   }
+   &:active {
+      filter: brightness(0.88);
+   }
+}
+
+.btn-wt {
+   background-color: var(--surface-color);
+   color: black;
+   &:hover {
+      filter: none;
+      background-color: var(--brand-color-light);
+   }
+}
+
+.btn-sm {
+   width: 6.8125rem;
+   height: 3.5625rem;
+}
+
+/* Primary WhatsApp call to action: icon plus label at every width. */
+.btn-cta {
+   gap: 0.75rem;
+   width: min(100%, 22rem);
+   min-height: 4.5625rem;
+   padding: 0.75rem 1.25rem;
+   font-size: var(--fs-sm);
+   text-align: left;
+   & img {
+      flex: 0 0 auto;
+      width: 2.25rem;
+      height: 2.25rem;
+   }
+}
+
+@media (width >= 80em) {
+   .btn-cta {
+      width: min(100%, 31.25rem);
+      font-size: var(--fs-base);
+      & img {
+         width: 2.75rem;
+         height: 2.75rem;
+      }
+   }
+}

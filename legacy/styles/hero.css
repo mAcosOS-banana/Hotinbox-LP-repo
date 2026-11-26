@@ -1,0 +1,158 @@
+#main-section {
+   box-shadow: var(--box-shadow-default);
+   & #left-part {
+      overflow-x: hidden;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-inline: 2rem;
+      padding-top: 2rem;
+      text-align: center;
+      & #logo-img {
+         width: 159px;
+         height: 128px;
+      }
+      & h1 {
+         padding-top: 3rem;
+         font-size: var(--fs-md);
+         text-wrap: balance;
+         & span {
+            color: var(--brand-dark-color);
+            text-decoration: underline;
+            text-decoration-color: var(--brand-color-secondary);
+            text-decoration-thickness: 0.18em;
+            text-underline-offset: 0.12em;
+            text-decoration-skip-ink: none;
+         }
+      }
+
+      & #hero-sub {
+         padding-top: 0.5rem;
+         font-size: var(--fs-base);
+         font-weight: var(--fw-sm);
+      }
+
+      & #buttons {
+         justify-content: center;
+         width: 100%;
+         padding-top: 2.5rem;
+      }
+
+      & .hero-note {
+         max-width: 22rem;
+         padding-top: 1rem;
+         font-size: 0.875rem;
+         font-weight: var(--fw-sm);
+         line-height: var(--lh-base);
+      }
+
+      /* The dome already peeks in on mobile, so the scroll arrow only ships on desktop. */
+      & #scroll-down {
+         display: none;
+         & img {
+            width: 1.5rem;
+            height: 1.5rem;
+         }
+      }
+
+      & #inner-box {
+         display: flex;
+         position: relative;
+         overflow: hidden;
+         width: 200%;
+         height: 300px;
+         justify-content: center;
+         align-items: center;
+         margin: 3rem 0 0;
+
+         & #round-image {
+            z-index: 1;
+            position: absolute;
+            overflow: hidden;
+            background-color: var(--brand-color-light);
+            top: 0;
+            border-radius: 50%;
+            width: 100%;
+            height: 800px;
+            bottom: 0;
+
+            & img {
+               position: absolute;
+               top: 0;
+               /* The dome is twice the column width; span exactly the viewport (column + its 2rem padding on each side). */
+               left: calc(25% - 2rem);
+               width: calc(50% + 4rem);
+               height: 300px;
+               object-fit: cover;
+               object-position: center 62%;
+            }
+         }
+      }
+   }
+   & #right-part {
+      display: none;
+   }
+}
+
+@media (width >= 80em) {
+   #main-section {
+      grid-template-columns: 0.93fr 1fr;
+      min-height: min(100svh, 60rem);
+
+      & #left-part {
+         grid-column: 1 / 2;
+         padding-block: 2rem;
+         & #logo-wrap {
+            margin-bottom: auto;
+         }
+         & h1 {
+            padding-top: 2rem;
+         }
+         & #hero-sub {
+            font-size: 1.5rem;
+         }
+         & #buttons {
+            padding-top: 3rem;
+         }
+         & .hero-note {
+            max-width: none;
+            font-size: var(--fs-sm);
+         }
+         & #scroll-down {
+            display: flex;
+            margin-top: auto;
+         }
+      }
+      & #left-part #inner-box {
+         display: none;
+      }
+      & #right-part {
+         grid-column: 2 / 3;
+         display: flex;
+         & #img-box {
+            display: flex;
+            width: 100%;
+            & img {
+               display: block;
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+            }
+         }
+      }
+   }
+}
+
+/* Tablets: a taller product dome so the kit photo isn't a thin strip. */
+@media (48em <= width < 80em) {
+   #main-section #left-part #inner-box {
+      height: 440px;
+      & #round-image {
+         height: 1200px;
+         & img {
+            height: 440px;
+         }
+      }
+   }
+}

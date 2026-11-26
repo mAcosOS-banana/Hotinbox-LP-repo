@@ -1,0 +1,67 @@
+/* Closing call to action: the page ends on the WhatsApp conversation, not on a value card. */
+#contact {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1.5rem;
+   padding: 4rem 2rem;
+   text-align: center;
+   box-shadow: var(--box-shadow-default);
+
+   & h2 {
+      font-size: 1.5rem;
+      text-wrap: balance;
+      max-width: 32rem;
+   }
+
+   & > p {
+      max-width: 34rem;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-sm);
+      line-height: var(--lh-base);
+   }
+
+   & .contact-note {
+      font-size: 0.875rem;
+   }
+}
+
+#site-footer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 0.75rem;
+   /* Bottom room so the floating WhatsApp button never covers the footer text. */
+   padding: 2rem 2rem 7rem;
+   background-color: var(--surface-color);
+   text-align: center;
+
+   & img {
+      width: 96px;
+      height: auto;
+   }
+
+   & p {
+      font-size: 0.875rem;
+      font-weight: var(--fw-sm);
+   }
+}
+
+@media (width >= 80em) {
+   #contact {
+      padding-block: 6rem;
+      & h2 {
+         font-size: var(--fs-md);
+      }
+      & > p {
+         font-size: var(--fs-base);
+      }
+      & .contact-note {
+         font-size: var(--fs-sm);
+      }
+   }
+
+   #site-footer {
+      padding-bottom: 2rem;
+   }
+}

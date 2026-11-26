@@ -1,0 +1,82 @@
+#sustainability {
+   padding: 4rem 2rem;
+
+   & h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      text-wrap: balance;
+      max-width: 40rem;
+      margin-inline: auto;
+   }
+
+   & #cards-area {
+      display: grid;
+      gap: 1.5rem;
+      justify-items: center;
+      padding-top: 2.5rem;
+   }
+
+   & .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: min(100%, 20rem);
+      padding: 1.5rem;
+      text-align: center;
+      & img {
+         width: 66px;
+         height: 58px;
+         object-fit: contain;
+      }
+      & h3 {
+         font-size: var(--fs-sm);
+         font-weight: var(--fw-bold);
+         color: var(--brand-dark-color);
+      }
+      & p {
+         font-size: 0.875rem;
+         font-weight: var(--fw-sm);
+         line-height: var(--lh-base);
+      }
+   }
+}
+
+/* Tablets and up: the three value cards sit side by side. */
+@media (width >= 48em) {
+   #sustainability #cards-area {
+      grid-template-columns: repeat(3, minmax(0, 20rem));
+      justify-content: center;
+      align-items: stretch;
+   }
+   #sustainability .box {
+      width: 100%;
+   }
+}
+
+@media (width >= 80em) {
+   #sustainability {
+      padding-block: 6rem;
+      & h2 {
+         font-size: var(--fs-md);
+      }
+      & #cards-area {
+         grid-template-columns: repeat(3, minmax(0, 22rem));
+         gap: 3rem;
+         padding-top: 4rem;
+      }
+      & .box {
+         padding: 2.5rem 2rem;
+         & img {
+            width: 88px;
+            height: 80px;
+         }
+         & h3 {
+            font-size: var(--fs-base);
+         }
+         & p {
+            font-size: var(--fs-sm);
+         }
+      }
+   }
+}
