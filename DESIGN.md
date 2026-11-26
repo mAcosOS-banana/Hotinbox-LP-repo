@@ -9,7 +9,7 @@ colors:
   ink-green: "#10461e"
   beet: "#c2185b"
   beet-tint: "#fbe3ee"
-  paper: "#fbfbf8"
+  paper: "#f9fbf4"
   card-white: "#ffffff"
   ink: "#1a1a1a"
   ink-soft: "#3d3d3a"
@@ -68,7 +68,8 @@ rounded:
   button: "16px 6px 14px 7px / 7px 14px 6px 16px"
   round: "9999px"
 spacing:
-  grid: "28px"
+  veg-tile: "440px / 520px"
+  vine: "180px x 36px"
   rule: "36px"
   gutter: "20px"
   gutter-sm: "32px"
@@ -126,14 +127,15 @@ components:
 
 **Creative North Star: "The Marker Explainer"**
 
-A friend takes a black marker to a sheet of graph paper, tapes the real kit photo to it, and draws arrows to the soil, the seeds, the sprayer and the tools. Every section is an explained drawing, not a sales block: headings are hand-lettered, boxes are ruled by hand with a second offset stroke, lists sit on lined paper, sticky notes are taped down, and a small sprout-in-a-box mascot, Brotinho, acts out each step. The page is warm and plainly instructive, the register of a notebook page someone made for you.
+A friend takes a black marker to a sheet of notebook paper doodled with vegetables, tapes the real kit photo to it, and draws arrows to the soil, the seeds, the sprayer and the tools. Every section is an explained drawing, not a sales block: headings are hand-lettered, boxes are ruled by hand with a second offset stroke, lists sit on lined paper, sticky notes are taped down, and a small sprout-in-a-box mascot, Brotinho, acts out each step. The page is warm and plainly instructive, the register of a notebook page someone made for you.
 
-Density is relaxed: one idea per panel, generous section rhythm, and the graph grid always visible so the paper reads as a surface. Real photography carries the product truth; drawing carries the explanation. Nothing is glossy, blurred or gradient-lit. The marker world refuses the eco-D2C template of stock leaves, badge rows and equal icon cards.
+Density is relaxed: one idea per panel, generous section rhythm, and a light kitchen-garden ground always visible: marker-drawn edible greens scattered over the paper and soft pools of canopy light, so the page reads like a notebook left on a garden bench. Real photography carries the product truth; drawing carries the explanation. Nothing is glossy or blurred; the only gradients are the canopy light pools in the page ground. The marker world refuses the eco-D2C template of stock leaves, badge rows and equal icon cards.
 
 Motion is the act of drawing: arrows, ticks, stars, swipes and highlighter bands draw themselves in when their section enters view. Text is never hidden, and under reduced motion or without JavaScript everything is already drawn.
 
 **Key Characteristics:**
-- Off-white paper with a faint forest-green 28px graph grid across the whole page.
+- Pale leaf-tinted paper with scattered marker-drawn edible greens that grow as microgreens (radish, beet, pea shoots and pods, broccoli, sunflower sprouts, basil, arugula, sprout clusters) and canopy light pools across the whole page.
+- Hand-drawn leafy branches that sway gently at section corners, and leafy vines in place of ink rules between bands.
 - Black marker ink for every border, arrow and outline; Kalam lettering for everything drawn, Archivo for prose.
 - Hand-ruled boxes with asymmetric wobble radii and a second, offset ink stroke.
 - Sprout green as the single action fill; beet magenta only as a second highlighter and marker accent.
@@ -149,7 +151,7 @@ A paper-and-marker palette: near-white paper, near-black ink, two brand greens t
 - **Sprout Green** (#82d85a): the brand's bright green and the only solid fill an action gets (main action button, header WhatsApp button, floating WhatsApp button). Also the primary highlighter swipe behind a key word in a heading, the heading underline swipe, the mascot's leaves, and the text selection color.
 - **Pressed Sprout** (#5fb83a): the action button's pressed state only.
 - **Sprout Wash** (#e6f5dc): sticky-note paper; the lightest green surface.
-- **Forest Green** (#1c7434): every piece of green text (emphasized words, callouts, panel numbers), the tick marks inside checkboxes, the dashed focus ring, and, at 7% opacity, the graph-grid lines.
+- **Forest Green** (#1c7434): every piece of green text (emphasized words, callouts, panel numbers), the tick marks inside checkboxes, the dashed focus ring, and, through the pattern's 12 to 13% group opacity, the outlines of the background vegetables.
 - **Deep Leaf Ink** (#10461e): text on sprout surfaces (button labels, selected text).
 
 ### Secondary
@@ -157,8 +159,8 @@ A paper-and-marker palette: near-white paper, near-black ink, two brand greens t
 - **Beet Wash** (#fbe3ee): the alternate sticky-note paper.
 
 ### Neutral
-- **Notebook Paper** (#fbfbf8): the page background under the graph grid; also the halo under arrows that cross photos and the backing of photo pins.
-- **Card White** (#ffffff): the inside of hand-ruled boxes, ruled list paper, the third sticky note; at 70% over the grid it forms the quiet band.
+- **Notebook Paper** (#f9fbf4): the page background under the vegetable ground; also the halo under arrows that cross photos and the backing of photo pins.
+- **Card White** (#ffffff): the inside of hand-ruled boxes, ruled list paper, the third sticky note; at 70% it backs the footer.
 - **Marker Ink** (#1a1a1a): all body text, every border, outline, arrow and doodle stroke.
 - **Soft Ink** (#3d3d3a): lead paragraphs and secondary notes under headings.
 
@@ -193,16 +195,18 @@ A paper-and-marker palette: near-white paper, near-black ink, two brand greens t
 
 ## Layout
 
-The whole page is one sheet of graph paper: a 28px grid of 1px forest lines at 7% opacity over notebook paper. Content sits in a 1280px container with a 20px gutter (32px from 640px). Sections breathe at 80px vertical padding, 112px to 128px from 1024px, and blocks inside a section are separated by 96px.
+The whole page is one sheet of kitchen-garden notebook paper: two different marker-drawn vegetable tiles (public/assets/patterns/hortalicas-a.svg and hortalicas-b.svg, full-color fills and #1c5c2c outlines at 12 to 13% group opacity) at unrelated sizes, 440px and 520px, offset so the repeat never reads as a grid, plus four large soft pools of sprout light (16 to 22%) at the page corners and flanks. Content sits in a 1280px container with a 20px gutter (32px from 640px). Sections breathe at 80px vertical padding, 112px to 128px from 1024px, and blocks inside a section are separated by 96px.
 
 Desktop compositions use a 12-column grid: the hero splits 5/12 copy to 7/12 annotated photo; Nossos Kits pairs a 5-column story column with a 6-column ruled list. Sequences (the three comic panels, the four steps) run as rows joined by drawn arrows on desktop and stack in a single 576px-max column on phones, where panel arrows turn downward. The header sits on a single hand-drawn rule; the logo is the binding brand mark (public/assets/icons/logo-im.svg).
 
 Breakpoints follow 640px (sm), 768px (md: nav appears, floating button leaves) and 1024px (lg: multi-column, arrow annotations on the hero photo).
 
 ### Named Rules
-**The Graph Paper Rule.** The grid runs under every section by default; surfaces sit on it rather than covering the page.
+**The Garden Ground Rule.** The vegetable ground runs under every section; surfaces sit on it rather than covering the page. The pattern stays faint (13% group opacity at most) and sparse (tiles of 440px and up) so body text keeps full contrast.
 
-**The Quiet Band Rule.** One deliberately calmer band separates the densest content: the Nossos Kits section drops the grid behind a white wash at 70% opacity, bordered top and bottom by 2.5px ink rules. The footer reuses the same wash with a top rule. Use the band for a dense product section, not as a general section background.
+**The Edible World Rule.** Illustration comes from the edible garden, above all the microgreens the kit grows: radish, beet, pea, broccoli, sunflower, basil, arugula and sprout clusters, drawn in the marker line with their true colors (radish pink #e0457b, beetroot #a01848 with beet-magenta stems, greens from the palette). Reach for a vegetable or a sprout before a generic leaf, and never for stock produce photography or emoji.
+
+**The Green Band Rule.** One deliberately distinct band holds the densest content: the Nossos Kits section lays a 55% sprout wash over the leaf ground, edged top and bottom by a drawn leafy vine instead of an ink rule. The footer uses a 70% white wash with a vine on top. Use the band for a dense product section, not as a general section background.
 
 ## Elevation & Depth
 
@@ -257,6 +261,18 @@ Card white with 18% beet rules every 36px. Content snaps to the rule: the title 
 ### Sticky notes
 Untrimmed paper squares in sprout wash, beet wash or white, with tape at top center, a paper contact shadow, tilt alternating between -2 and 1 degree, a Kalam title and Archivo body. No border.
 
+### Leafy branch (Ramo)
+A hand-drawn branch hanging from its root: a 3.6px ink stem with eleven alternating leaves (ink outline 2.6px, veins 1.4px) filled in sprout, sprout wash, pressed sprout and leaf green #a4d47c. It hangs at section corners and over the corners of boxes and notes (hero left margin from 1400px, the Quem Somos note, the contents list, Propósito from 1280px, the closing box). Each leaf sways on its own stalk (5 to 8s, ±5 degrees, staggered) and the branch rocks ±1.5 degrees from its root; both stop under reduced motion. Decorative only: aria-hidden, no pointer events.
+
+### Leafy vine
+A repeating 180 by 36px drawn vine (wavy 2.4px ink stem with small filled leaves) laid across the top and bottom edge of the green band and the top of the footer, replacing ink rules.
+
+### Entry bush (Moita)
+On the first visit of a session, a dense marker-drawn bush covers the screen: five back-to-front layers of leaves (forest, pressed sprout, sprout, leaf green, sprout wash), beet greens with magenta stalks and veins, radishes tumbling among the front leaves, and microgreen sprouts along the bottom, over a #bfe3a3 backing. It rustles toward the centre, then the two halves part outward and rotate away from their bottom corners (1.2s, starting at 0.12s), front leaves flicking on their stalks, and the overlay fades out by 1.55s. The two backings meet exactly at the centre and travel with their halves; leaves sit above both, so no seam ever shows. Any click, key, wheel or touch skips it; it never plays under reduced motion or without JavaScript, and scroll is locked only while it plays. Decorative only: aria-hidden.
+
+### Sprout journey (scroll story)
+A small kraft box (the kit's own box, with a white label) sits fixed at the bottom-left, 20px above the bottom edge (28px from 768px, plus the safe area), 64px wide (96px from 768px). Its sprout is mapped to the scroll: a short forest-green microgreen stem (5px) starts hidden inside the box and rises out of it as the page scrolls, then two seed leaves open at its top, the same pair Brotinho wears; the right one is the leaf that falls. Before the closing section sits the demo stage "Da caixa para o prato" (Palco.tsx), 160svh tall while the journey runs, its content pinned to the screen (sticky) for 60svh of scroll. As it arrives, the grown plant eases to the centre of the screen, both horizontally and vertically, growing to 2.4 times its size on phones and 1.7 times from 768px, and three Kalam phrases appear around it one by one, rising and scaling in: "Colha em até 7 dias" (sprout highlight, arrow to the plant) at upper left, "Alimentação + Saudável" (beet highlight, arrow) at right, and the section heading "Da caixa para o prato" below; below 1024px they stack above and below the plant without arrows, anchored to its edges with a 1.75rem gap so the spacing holds on any screen height. While the stage is pinned, the right leaf lets go and falls with the scroll, swaying and turning, to the closing Brotinho, who waits without his right leaf, while the plant sinks and fades. The leaf lands with Brotinho's head a third of the way down the screen, so he stays in view on phones. The leaf snaps into place (scale overshoot), Brotinho squashes, stretches and hops (1s), a beet sparkle bursts over him, and the heading, lead, button and delivery note bounce in one after another (0.7s each, 0.14s apart), the button ending with a wiggle. Before docking everything rewinds with the scroll; docking is final. A 2s safety net reveals the section if it sits in view undocked. After docking, scrolling back shows the static plant resting at centre stage without its right leaf. Under reduced motion or without JavaScript, the journey never renders, the closing section shows complete, leaf included, and the stage is a compact band: the three phrases around a still sprout-in-box drawing (in a row on desktop, stacked on phones).
+
 ### Doodles
 Drawn SVG strokes, all in currentColor ink unless noted, round caps and joins.
 - **Arrow:** one body stroke and a two-stroke head drawn 0.55s after it; 3px stroke. Arrows crossing a photo carry a paper halo 5px wider underneath.
@@ -266,7 +282,9 @@ Drawn SVG strokes, all in currentColor ink unless noted, round caps and joins.
 - **Star:** a five-point beet marker star for bullets and callouts.
 
 ### Brotinho mascot
-The kit's kraft box with a sprout growing out of it, in 3px ink line art with a hatched side, sprout leaves and beet blush. Moods: happy, tired (drooping sprout, flat eyes, a sweat drop), idea (raised arm, light bulb), wave (raised arm with motion ticks), chat (speech bubble). It appears inside comic panels, steps and the closing call, sized 96px to 256px. The kraft tones are internal to the mascot drawing, not palette colors.
+The kit's kraft box with a sprout growing out of it, in 3px ink line art with a hatched side, sprout leaves and beet blush. Moods: happy, tired (drooping sprout, flat eyes, a drop), idea (raised arm, light bulb), wave (raised arm with motion ticks), chat (two speech bubbles, a white one on the right and a sprout-wash one with dots on the left).
+
+With `animated` (used in the Quem Somos panels problem → idea → our way) each mood loops its own small scene: the drop runs down the front of the box and vanishes (2.6s), the bulb pops in, lights from pale to #ffd84a with a soft glow and flickering rays, then fades (3.4s), and the speech bubbles pop in alternately, right then left (3.6s, offset by half). Under reduced motion every scene rests on its complete drawing. It appears inside comic panels, steps and the closing call, sized 96px to 256px. The kraft tones are internal to the mascot drawing, not palette colors.
 
 ### Annotated kit photo
 The real kit photo, taped and tilted. From 1024px, Kalam labels sit in the margins and four haloed arrows reach into the photo, drawing in sequence. Below 1024px, numbered pins sit on the photo and a two-column numbered legend sits under it.
@@ -282,7 +300,9 @@ Three Kalam links in the header from 768px, gaining a 3px sprout underline on ho
 ### Do:
 - **Do** set every border, arrow and doodle in marker ink (#1a1a1a) at 2 to 3px.
 - **Do** give drawn boxes an asymmetric wobble radius, a second offset stroke and a 1 to 2 degree tilt.
-- **Do** keep the 28px forest graph grid visible under every section except the one quiet band.
+- **Do** keep the vegetable ground visible under every section, faint enough that text keeps full contrast.
+- **Do** draw edible things, microgreens first, when a section needs an illustration.
+- **Do** keep leafy branches in margins and on box corners, never over body text or photo annotations.
 - **Do** annotate real photography with drawn arrows or numbered pins; tape photos down.
 - **Do** use Kalam for anything drawn or handwritten and Archivo for explanation.
 - **Do** make every WhatsApp action the sprout action button with deep-leaf-ink label.

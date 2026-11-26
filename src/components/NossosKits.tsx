@@ -1,4 +1,5 @@
 import { Brotinho } from "./Brotinho";
+import { Ramo } from "./Folhagem";
 import { Arrow, Draw, Num, Star, Swipe, Tick, WhatsAppGlyph } from "./doodles";
 import { whatsappLink } from "../lib/site";
 
@@ -36,7 +37,7 @@ const PLANS = [
 
 export function NossosKits() {
   return (
-    <section id="kit" aria-labelledby="kit-title" className="border-y-[2.5px] border-ink bg-white/70">
+    <section id="kit" aria-labelledby="kit-title" className="vine-top vine-bottom bg-sprout-tint/55">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
         <Draw className="grid gap-14 lg:grid-cols-12 lg:gap-10" threshold={0.25}>
           <div className="lg:col-span-5">
@@ -68,6 +69,7 @@ export function NossosKits() {
           </div>
 
           <div className="relative lg:col-span-6 lg:col-start-7">
+            <Ramo seed={2} className="absolute -top-16 -right-4 z-10 w-24 rotate-6 sm:w-32" />
             <div className="sketch ruled -rotate-1 px-6 pt-5 pb-8 sm:px-10">
               <h3 className="font-marker text-[1.75rem] leading-[2.25rem] font-bold">O que vem na caixa</h3>
               <ul className="mt-[2.25rem]">
