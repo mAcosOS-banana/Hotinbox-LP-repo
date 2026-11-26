@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#1c5c2c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Hortaliças de microverde desenhadas a marcador, em tom pastel (opacidade do grupo). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#1c5c2c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Hortaliças de microverde desenhadas a marcador, em tom pastel (opacidade do grupo). Traço mais
+       fino que a tinta do primeiro plano e raízes num rosa suave, para o chão nunca disputar com o
+       marca-texto beterraba. -->
   <g opacity="0.13">
     <!-- rabanete -->
     <g transform="translate(62 70) rotate(-14)">
       <path d="M0-2c-6-16-20-24-32-20 1 14 15 22 32 20z" fill="#82d85a"/>
       <path d="M1-2c3-18 16-28 30-26 1 14-12 26-30 26z" fill="#5fb83a"/>
       <path d="M-4-8l-14-8M6-10l14-10" stroke-width="1.4"/>
-      <path d="M0 0c-15 0-24 12-21 25 2 11 12 19 21 25 9-6 19-14 21-25 3-13-6-25-21-25z" fill="#e0457b"/>
+      <path d="M0 0c-15 0-24 12-21 25 2 11 12 19 21 25 9-6 19-14 21-25 3-13-6-25-21-25z" fill="#ef8fb0"/>
       <path d="M-11 10c-3 5-3 11 0 16" stroke="#ffffff" stroke-width="2"/>
       <path d="M0 50c1 8-1 15-5 21"/>
     </g>
