@@ -319,21 +319,32 @@
 }
 
 /* Jornada do broto: a plantinha que cresce com a rolagem e a folha que cai até o Brotinho. */
+/* Plant size and how much it grows at centre stage; the stage phrases anchor to it. */
+.jornada {
+  --plant-w: 64px;
+  --plant-cs: 2.4;
+}
+@media (width >= 48em) {
+  .jornada {
+    --plant-w: 96px;
+    --plant-cs: 1.7;
+  }
+}
 .jornada-plant {
-  --pw: 64px;
-  /* Drawing aspect (158 / 170) and the scale it reaches at centre stage. */
+  --pw: var(--plant-w, 64px);
+  /* Drawing aspect (158 / 170). */
   --ph: calc(var(--pw) * 0.93);
   --pad: calc(20px + env(safe-area-inset-bottom, 0px));
   position: fixed;
   /* Rests a little above the bottom edge, then rises with --c until its centre meets the screen's. */
-  bottom: calc(var(--pad) * (1 - var(--c, 0)) + (50dvh - var(--ph) * 1.7 / 2) * var(--c, 0));
+  bottom: calc(var(--pad) * (1 - var(--c, 0)) + (50dvh - var(--ph) * var(--plant-cs, 1.7) / 2) * var(--c, 0));
   left: calc(16px + (50vw - 16px - var(--pw) / 2) * var(--c, 0));
   z-index: 25;
   width: var(--pw);
   pointer-events: none;
   translate: 0 calc(var(--s, 0) * 110%);
   /* Grows to centre stage: a bigger plant over the empty stage. */
-  scale: calc(1 + var(--c, 0) * 0.7);
+  scale: calc(1 + var(--c, 0) * (var(--plant-cs, 1.7) - 1));
   transform-origin: 50% 100%;
   opacity: calc(1 - var(--s, 0));
 }
@@ -344,7 +355,6 @@
 }
 @media (width >= 48em) {
   .jornada-plant {
-    --pw: 96px;
     --pad: 28px;
   }
 }
@@ -383,12 +393,12 @@
   position: relative;
   font-family: var(--font-marker);
   font-weight: 700;
-  font-size: clamp(1.75rem, 4.6vw, 3.25rem);
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
   line-height: 1.05;
   text-wrap: balance;
 }
 .palco-p3 {
-  font-size: clamp(2rem, 5.4vw, 4rem);
+  font-size: clamp(2.25rem, 5.4vw, 4rem);
 }
 .palco-arrow {
   display: none;
@@ -441,9 +451,14 @@
   translate: 0 calc((1 - var(--p)) * 26px);
   scale: calc(0.88 + var(--p) * 0.12);
 }
-.jornada .palco-p1 { top: 22%; }
-.jornada .palco-p2 { top: 61%; }
-.jornada .palco-p3 { top: 74%; }
+/* Phones and tablets: phrases stack above and below the plant, anchored to its edges. */
+.jornada .palco-inner {
+  --half: calc(var(--plant-w) * 0.93 * var(--plant-cs) / 2);
+  --gap: 1.75rem;
+}
+.jornada .palco-p1 { bottom: calc(50% + var(--half) + var(--gap)); }
+.jornada .palco-p2 { top: calc(50% + var(--half) + var(--gap)); }
+.jornada .palco-p3 { top: calc(50% + var(--half) + var(--gap) + 6.25rem); }
 .jornada:not(.jornada-done) .palco-static-plant {
   display: none;
 }
@@ -453,15 +468,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: calc(64px * 1.7);
+  width: calc(var(--plant-w) * var(--plant-cs));
 }
 .jornada-done .palco-static-plant .jornada-tip {
   display: none;
-}
-@media (width >= 48em) {
-  .jornada-done .palco-static-plant {
-    width: calc(96px * 1.7);
-  }
 }
 @media (width >= 64em) {
   .jornada .palco-phrase {
@@ -471,6 +481,7 @@
   .jornada .palco-p1 {
     left: auto;
     right: calc(50% + 150px);
+    bottom: auto;
     top: 30%;
     transform: none;
     text-align: right;
@@ -482,7 +493,7 @@
     text-align: left;
   }
   .jornada .palco-p3 {
-    top: calc(50% + 130px);
+    top: calc(50% + var(--half) + 3rem);
   }
   .jornada .palco-arrow {
     display: block;
