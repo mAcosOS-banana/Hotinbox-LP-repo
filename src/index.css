@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "@fontsource/kalam/400.css";
+@import "@fontsource/kalam/700.css";
+@import "@fontsource-variable/archivo";
+
+@theme {
+  --color-paper: #fbfbf8;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #3d3d3a;
+  --color-sprout: #82d85a;
+  --color-sprout-deep: #5fb83a;
+  --color-sprout-tint: #e6f5dc;
+  --color-forest: #1c7434;
+  --color-ink-green: #10461e;
+  --color-beet: #c2185b;
+  --color-beet-tint: #fbe3ee;
+
+  --font-marker: "Kalam", "Comic Sans MS", cursive;
+  --font-sans: "Archivo Variable", "Archivo", system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    /* Caderno quadriculado: a página inteira é uma folha de rascunho. */
+    background-image:
+      linear-gradient(rgb(28 116 52 / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(28 116 52 / 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-sprout);
+    color: var(--color-ink-green);
+  }
+
+  :focus-visible {
+    outline: 3px dashed var(--color-forest);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  html {
+    scrollbar-color: var(--color-ink) var(--color-paper);
+  }
+}
+
+@layer components {
+  /* Caixa riscada à mão: borda irregular de marcador e um segundo traço deslocado. */
+  .sketch {
+    position: relative;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 18px 6px 16px 8px / 8px 16px 6px 18px;
+    isolation: isolate;
+  }
+  .sketch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    translate: 6px 7px;
+    border: 2px solid var(--color-ink);
+    border-radius: 8px 18px 6px 16px / 16px 6px 18px 8px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+  .sketch-soft {
+    position: relative;
+    border: 2px solid var(--color-ink);
+    border-radius: 14px 5px 12px 6px / 6px 12px 5px 14px;
+  }
+
+  /* Botão de ação: o único lugar onde o verde-broto vira preenchimento. */
+  .btn-go {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 3.75rem;
+    padding: 0.85rem 1.6rem;
+    background-color: var(--color-sprout);
+    color: var(--color-ink-green);
+    font-family: var(--font-marker);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.1;
+    border: 2.5px solid var(--color-ink);
+    border-radius: 16px 6px 14px 7px / 7px 14px 6px 16px;
+    box-shadow: 5px 6px 0 -1px var(--color-paper), 5px 6px 0 1px var(--color-ink);
+    transition:
+      translate 0.25s var(--ease-out-expo),
+      box-shadow 0.25s var(--ease-out-expo),
+      background-color 0.25s;
+  }
+  .btn-go:hover {
+    translate: -1px -2px;
+    box-shadow: 7px 9px 0 -1px var(--color-paper), 7px 9px 0 1px var(--color-ink);
+  }
+  .btn-go:active {
+    translate: 4px 5px;
+    box-shadow: 1px 1px 0 -1px var(--color-paper), 1px 1px 0 1px var(--color-ink);
+    background-color: var(--color-sprout-deep);
+  }
+
+  /* Marca-texto: faixa presa à caixa da fonte, então cai no mesmo lugar em Kalam e em Archivo. */
+  .hl {
+    --hl-color: var(--color-sprout);
+    padding-inline: 0.12em;
+    margin-inline: -0.12em;
+    border-radius: 0.25em 0.1em 0.3em 0.1em;
+    background-image: linear-gradient(
+      176deg,
+      transparent var(--hl-a, 46%),
+      var(--hl-color) var(--hl-a, 46%),
+      var(--hl-color) var(--hl-b, 90%),
+      transparent var(--hl-b, 90%)
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-size 0.9s var(--ease-out-expo) var(--hl-delay, 0s);
+  }
+  .hl-beet {
+    --hl-color: color-mix(in srgb, var(--color-beet) 28%, transparent);
+  }
+  /* Kalam has a tall font box: the swipe sits higher to stay on the letters. */
+  .font-marker .hl,
+  .hl.font-marker {
+    --hl-a: 40%;
+    --hl-b: 74%;
+  }
+
+  /* Tira de fita adesiva que segura fotos e bilhetes. */
+  .tape {
+    position: absolute;
+    width: 5.5rem;
+    height: 1.6rem;
+    background: rgb(226 236 214 / 0.82);
+    border-left: 1px dashed rgb(26 26 26 / 0.25);
+    border-right: 1px dashed rgb(26 26 26 / 0.25);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.12);
+  }
+
+  /* Folha pautada para listas. */
+  .ruled {
+    background-color: #fff;
+    background-image: linear-gradient(transparent calc(2.25rem - 1px), rgb(194 24 91 / 0.18) calc(2.25rem - 1px));
+    background-size: 100% 2.25rem;
+  }
+}
+
+/* Desenho ao entrar na tela: só quando há JS e o movimento é permitido.
+   Sem isso, setas, marca-texto e vistos já aparecem desenhados. */
+@media (prefers-reduced-motion: no-preference) {
+  .motion [data-draw] .draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.1s var(--ease-out-expo) var(--d, 0s);
+  }
+  .motion [data-draw="on"] .draw {
+    stroke-dashoffset: 0;
+  }
+  .motion [data-draw] .hl {
+    background-size: 0% 100%;
+  }
+  .motion [data-draw="on"] .hl {
+    background-size: 100% 100%;
+  }
+}

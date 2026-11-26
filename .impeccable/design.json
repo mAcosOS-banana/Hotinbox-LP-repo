@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T02:42:43Z",
+  "title": "Design System: Hortinbox",
+  "extensions": {
+    "colorMeta": {
+      "sprout": {
+        "role": "primary",
+        "displayName": "Sprout Green",
+        "canonical": "oklch(80.1% 0.182 137)",
+        "tonalRamp": [
+          "#020f00",
+          "#0c2e00",
+          "#1b5000",
+          "#2b7400",
+          "#4e9726",
+          "#7fb767",
+          "#afd79f",
+          "#dff7d6"
+        ]
+      },
+      "sprout-deep": {
+        "role": "primary",
+        "displayName": "Pressed Sprout",
+        "canonical": "oklch(70.2% 0.183 138)",
+        "tonalRamp": [
+          "#021000",
+          "#0a2e00",
+          "#175000",
+          "#267500",
+          "#4a9829",
+          "#7db868",
+          "#add79f",
+          "#dff7d7"
+        ]
+      },
+      "sprout-tint": {
+        "role": "primary",
+        "displayName": "Sprout Wash",
+        "canonical": "oklch(95.2% 0.037 133)",
+        "tonalRamp": [
+          "#0a0c08",
+          "#22271e",
+          "#3d4537",
+          "#5a6552",
+          "#7b8773",
+          "#9fa999",
+          "#c5ccc0",
+          "#ecf0e9"
+        ]
+      },
+      "forest": {
+        "role": "primary",
+        "displayName": "Forest Green",
+        "canonical": "oklch(49.3% 0.127 148)",
+        "tonalRamp": [
+          "#020f04",
+          "#0b2d13",
+          "#1a4e26",
+          "#29723a",
+          "#4d955a",
+          "#7fb586",
+          "#afd5b3",
+          "#e0f5e2"
+        ]
+      },
+      "ink-green": {
+        "role": "primary",
+        "displayName": "Deep Leaf Ink",
+        "canonical": "oklch(34.9% 0.087 148)",
+        "tonalRamp": [
+          "#050e06",
+          "#162b19",
+          "#2a4b30",
+          "#406d48",
+          "#619068",
+          "#8cb090",
+          "#b7d1ba",
+          "#e4f3e6"
+        ]
+      },
+      "beet": {
+        "role": "secondary",
+        "displayName": "Beet Magenta",
+        "canonical": "oklch(53.1% 0.202 6)",
+        "tonalRamp": [
+          "#1c0108",
+          "#48061e",
+          "#791037",
+          "#ad1c52",
+          "#d54772",
+          "#ec7d98",
+          "#ffafc0",
+          "#ffe0e9"
+        ]
+      },
+      "beet-tint": {
+        "role": "secondary",
+        "displayName": "Beet Wash",
+        "canonical": "oklch(93.8% 0.030 348)",
+        "tonalRamp": [
+          "#0e0a0c",
+          "#2b2226",
+          "#4b3e44",
+          "#6d5b64",
+          "#8f7c85",
+          "#b0a0a7",
+          "#d1c6cb",
+          "#f3ecef"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Notebook Paper",
+        "canonical": "oklch(98.7% 0.004 106)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a3",
+          "#c9c9c8",
+          "#eeeeee"
+        ]
+      },
+      "card-white": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Marker Ink",
+        "canonical": "oklch(21.8% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(35.9% 0.005 107)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424240",
+          "#61615e",
+          "#82827f",
+          "#a5a5a3",
+          "#c9c9c7",
+          "#eeeeed"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline and closing call; Kalam marker lettering."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, each followed by a sprout swipe."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Comic-panel, step and sticky-note titles."
+      },
+      "annotation": {
+        "displayName": "Annotation",
+        "purpose": "Photo labels, captions, marker callouts, ruled-list items."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Header and footer links."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Action button labels."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Paragraph under a heading, 30 to 42rem wide."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Panel and note text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Semibold check-list items beside a drawn tick."
+      }
+    },
+    "shadows": [
+      {
+        "name": "second-stroke",
+        "value": "::after { inset: 0; translate: 6px 7px; border: 2px solid var(--color-ink); border-radius: 8px 18px 6px 16px / 16px 6px 18px 8px; opacity: 0.85; z-index: -1 }",
+        "purpose": "The offset second outline on every hand-ruled box."
+      },
+      {
+        "name": "action-ring",
+        "value": "5px 6px 0 -1px var(--color-paper), 5px 6px 0 1px var(--color-ink)",
+        "purpose": "Action button at rest."
+      },
+      {
+        "name": "action-ring-hover",
+        "value": "7px 9px 0 -1px var(--color-paper), 7px 9px 0 1px var(--color-ink)",
+        "purpose": "Action button on hover."
+      },
+      {
+        "name": "action-ring-pressed",
+        "value": "1px 1px 0 -1px var(--color-paper), 1px 1px 0 1px var(--color-ink)",
+        "purpose": "Action button when pressed."
+      },
+      {
+        "name": "paper-contact",
+        "value": "0 2px 3px rgb(0 0 0 / 0.14)",
+        "purpose": "Sticky notes."
+      },
+      {
+        "name": "tape-contact",
+        "value": "0 1px 2px rgb(0 0 0 / 0.12)",
+        "purpose": "Tape strips."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every draw-on, highlighter sweep and button transition."
+      },
+      {
+        "name": "draw-on",
+        "value": "stroke-dashoffset 1 to 0, 1.1s ease-out-expo, per-element delay --d",
+        "purpose": "Arrows, ticks, stars and swipes draw in when their section enters view (threshold 0.15 to 0.35); arrow heads follow bodies by 0.55s."
+      },
+      {
+        "name": "highlighter-sweep",
+        "value": "background-size 0% to 100%, 0.9s ease-out-expo",
+        "purpose": "Highlighter bands sweep in on reveal."
+      },
+      {
+        "name": "button-press",
+        "value": "translate and box-shadow 0.25s ease-out-expo",
+        "purpose": "Action button lift and press."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce, or no JS",
+        "purpose": "Everything renders fully drawn; smooth scroll off; text never hidden."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ],
+    "surfaces": [
+      {
+        "name": "graph-paper",
+        "value": "background: #fbfbf8; background-image: linear-gradient(rgb(28 116 52 / 0.07) 1px, transparent 1px), linear-gradient(90deg, rgb(28 116 52 / 0.07) 1px, transparent 1px); background-size: 28px 28px",
+        "purpose": "The whole page."
+      },
+      {
+        "name": "quiet-band",
+        "value": "background: rgb(255 255 255 / 0.7); border-block: 2.5px solid var(--color-ink)",
+        "purpose": "Nossos Kits section (and footer, top rule only): calms the grid behind the densest content."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Button",
+      "kind": "button",
+      "refersTo": "button-action",
+      "description": "The sprout WhatsApp action; the only filled button in the system.",
+      "html": "<a class=\"ds-btn-go\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 20l1.3-4A8 8 0 1 1 8.2 19z\"/><path d=\"M9 9.5c.3 2 2.4 4.3 5.3 5l1.2-1.4-1.9-1-1 .9c-1-.4-2-1.4-2.4-2.4l.9-1-1-1.9z\"/></svg>Quero meu kit</a>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-btn-go{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.75rem;min-height:3.75rem;padding:.85rem 1.6rem;background:var(--color-sprout);color:var(--color-ink-green);font-family:var(--font-marker);font-weight:700;font-size:1.375rem;line-height:1.1;text-decoration:none;border:2.5px solid var(--color-ink);border-radius:16px 6px 14px 7px/7px 14px 6px 16px;box-shadow:5px 6px 0 -1px var(--color-paper),5px 6px 0 1px var(--color-ink);transition:translate .25s var(--ease-out-expo),box-shadow .25s var(--ease-out-expo),background-color .25s;} .ds-btn-go:hover{translate:-1px -2px;box-shadow:7px 9px 0 -1px var(--color-paper),7px 9px 0 1px var(--color-ink);} .ds-btn-go:active{translate:4px 5px;box-shadow:1px 1px 0 -1px var(--color-paper),1px 1px 0 1px var(--color-ink);background:var(--color-sprout-deep);} .ds-btn-go:focus-visible{outline:3px dashed var(--color-forest);outline-offset:4px;}"
+    },
+    {
+      "name": "Header Button",
+      "kind": "button",
+      "refersTo": "button-header",
+      "description": "Soft-box sprout button in the header that opens WhatsApp.",
+      "html": "<a class=\"ds-btn-header\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 20l1.3-4A8 8 0 1 1 8.2 19z\"/><path d=\"M9 9.5c.3 2 2.4 4.3 5.3 5l1.2-1.4-1.9-1-1 .9c-1-.4-2-1.4-2.4-2.4l.9-1-1-1.9z\"/></svg><span>Falar no WhatsApp</span></a>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-btn-header{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:8px 16px;background:var(--color-sprout);color:var(--color-ink-green);font-family:var(--font-marker);font-weight:700;font-size:1.125rem;text-decoration:none;border:2px solid var(--color-ink);border-radius:14px 5px 12px 6px/6px 12px 5px 14px;transition:transform .15s;} .ds-btn-header:hover{transform:rotate(-1deg);} .ds-btn-header:focus-visible{outline:3px dashed var(--color-forest);outline-offset:4px;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Marker links on a hand-drawn rule; sprout underline appears on hover.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Quem somos</a><a href=\"#\">O kit</a><a href=\"#\">Propósito</a><svg viewBox=\"0 0 1200 10\" preserveAspectRatio=\"none\" class=\"ds-nav-rule\" aria-hidden=\"true\"><path d=\"M2 5c200-3 400 2 600-1s400 3 596-1\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></nav>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-nav{position:relative;display:flex;gap:2.25rem;padding:12px 0 16px;font-family:var(--font-marker);font-size:1.25rem;} .ds-nav a{color:var(--color-ink);text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:3px;text-underline-offset:8px;transition:text-decoration-color .2s;} .ds-nav a:hover{text-decoration-color:var(--color-sprout);} .ds-nav a:focus-visible{outline:3px dashed var(--color-forest);outline-offset:4px;border-radius:6px;} .ds-nav-rule{position:absolute;left:0;right:0;bottom:0;width:100%;height:10px;}"
+    },
+    {
+      "name": "Hand-ruled Box",
+      "kind": "card",
+      "refersTo": "card-sketch",
+      "description": "Comic panel: wobbly ink border, second offset stroke, numbered title, mascot slot.",
+      "html": "<article class=\"ds-sketch\"><header class=\"ds-sketch-head\"><span class=\"ds-num\"><svg viewBox=\"0 0 40 40\" fill=\"none\" aria-hidden=\"true\"><path d=\"M20.5 3.2c9.4.2 16.6 7.2 16.3 16.9-.3 9.6-7.8 16.8-17.1 16.6C10.4 36.5 3.1 29.3 3.4 19.6 3.7 10.1 11.2 3 20.5 3.2c2.2 0 4.2.4 6 1.2\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"/></svg><b>1</b></span><h3>O problema</h3></header><p>Rotina corrida, pouco espaço e muita comida industrializada.</p></article>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-sketch{position:relative;isolation:isolate;max-width:22rem;padding:24px 24px 28px;background:#fff;color:var(--color-ink);border:2.5px solid var(--color-ink);border-radius:18px 6px 16px 8px/8px 16px 6px 18px;transform:rotate(-1deg);font-family:var(--font-sans);} .ds-sketch::after{content:'';position:absolute;inset:0;translate:6px 7px;border:2px solid var(--color-ink);border-radius:8px 18px 6px 16px/16px 6px 18px 8px;z-index:-1;opacity:.85;pointer-events:none;} .ds-sketch-head{display:flex;align-items:center;gap:.75rem;} .ds-sketch h3{margin:0;font-family:var(--font-marker);font-weight:700;font-size:1.5rem;} .ds-sketch p{font-size:1.125rem;line-height:1.625;} .ds-num{position:relative;display:inline-grid;place-items:center;width:40px;height:40px;color:var(--color-forest);font-family:var(--font-marker);font-size:1.25rem;} .ds-num svg{position:absolute;inset:0;} .ds-num b{position:relative;}"
+    },
+    {
+      "name": "Ruled List Paper",
+      "kind": "card",
+      "refersTo": "ruled-list",
+      "description": "Lined paper inside a hand-ruled box; every line is a 36px rule with a drawn tick.",
+      "html": "<div class=\"ds-ruled\"><h3>O que vem na caixa</h3><ul><li><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4.5 6.2c7.6-.9 15.4-.8 22.8.3.6 7 .5 13.9-.3 20.9-7.4.5-14.9.4-22.3-.4-.8-6.9-.9-13.9-.2-20.8z\" stroke=\"#1a1a1a\" stroke-width=\"2.2\"/><path d=\"M8.5 16.5l5.2 5.6L28.5 3.5\" stroke=\"#1c7434\" stroke-width=\"3.4\"/></svg>800 g de terra</li><li><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4.5 6.2c7.6-.9 15.4-.8 22.8.3.6 7 .5 13.9-.3 20.9-7.4.5-14.9.4-22.3-.4-.8-6.9-.9-13.9-.2-20.8z\" stroke=\"#1a1a1a\" stroke-width=\"2.2\"/><path d=\"M8.5 16.5l5.2 5.6L28.5 3.5\" stroke=\"#1c7434\" stroke-width=\"3.4\"/></svg>2 pacotes de sementes</li></ul></div>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-ruled{position:relative;max-width:26rem;padding:20px 40px 32px;background-color:#fff;background-image:linear-gradient(transparent calc(2.25rem - 1px),rgb(194 24 91/.18) calc(2.25rem - 1px));background-size:100% 2.25rem;border:2.5px solid var(--color-ink);border-radius:18px 6px 16px 8px/8px 16px 6px 18px;transform:rotate(-1deg);font-family:var(--font-marker);color:var(--color-ink);} .ds-ruled h3{margin:0;font-size:1.75rem;line-height:2.25rem;font-weight:700;} .ds-ruled ul{list-style:none;margin:2.25rem 0 0;padding:0;} .ds-ruled li{display:flex;align-items:center;gap:.75rem;height:2.25rem;font-size:1.25rem;} .ds-ruled svg{width:24px;height:24px;flex-shrink:0;}"
+    },
+    {
+      "name": "Sticky Note",
+      "kind": "card",
+      "refersTo": "sticky-note",
+      "description": "Taped paper note in sprout wash or beet wash with a contact shadow.",
+      "html": "<div class=\"ds-note\"><span class=\"ds-tape\" aria-hidden=\"true\"></span><h3>Aprender plantando</h3><p>Cultivar ensina de onde vem o alimento.</p></div>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-note{position:relative;max-width:20rem;padding:36px 28px 32px;background:var(--color-sprout-tint);color:var(--color-ink);transform:rotate(-2deg);box-shadow:0 2px 3px rgb(0 0 0/.14);font-family:var(--font-sans);} .ds-note h3{margin:0;font-family:var(--font-marker);font-weight:700;font-size:1.5rem;line-height:1.25;} .ds-note p{margin:.75rem 0 0;font-size:1.125rem;line-height:1.625;} .ds-tape{position:absolute;top:-12px;left:50%;width:5.5rem;height:1.6rem;transform:translateX(-50%) rotate(2deg);background:rgb(226 236 214/.82);border-left:1px dashed rgb(26 26 26/.25);border-right:1px dashed rgb(26 26 26/.25);box-shadow:0 1px 2px rgb(0 0 0/.12);}"
+    },
+    {
+      "name": "Highlighter",
+      "kind": "chip",
+      "refersTo": "highlighter",
+      "description": "Sprout and beet marker bands behind words, with the Kalam band position; sweeps in on hover here to show the reveal.",
+      "html": "<h2 class=\"ds-hl-demo\">Bora começar a sua <span class=\"ds-hl\">horta?</span></h2><p class=\"ds-hl-body\">Comer bem não devia ser <span class=\"ds-hl ds-hl-beet ds-hl-sans\">difícil</span>.</p>",
+      "css": ":host{--color-paper:#fbfbf8;--color-ink:#1a1a1a;--color-ink-soft:#3d3d3a;--color-sprout:#82d85a;--color-sprout-deep:#5fb83a;--color-sprout-tint:#e6f5dc;--color-forest:#1c7434;--color-ink-green:#10461e;--color-beet:#c2185b;--color-beet-tint:#fbe3ee;--font-marker:'Kalam','Comic Sans MS',cursive;--font-sans:'Archivo Variable','Archivo',system-ui,sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);} .ds-hl-demo{margin:0;font-family:var(--font-marker);font-weight:700;font-size:2.5rem;line-height:1;color:var(--color-ink);} .ds-hl-body{font-family:var(--font-sans);font-size:1.25rem;color:var(--color-ink);} .ds-hl{--hl-color:var(--color-sprout);--hl-a:40%;--hl-b:74%;padding-inline:.12em;margin-inline:-.12em;border-radius:.25em .1em .3em .1em;background-image:linear-gradient(176deg,transparent var(--hl-a),var(--hl-color) var(--hl-a),var(--hl-color) var(--hl-b),transparent var(--hl-b));background-repeat:no-repeat;background-size:100% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s var(--ease-out-expo);} .ds-hl-sans{--hl-a:46%;--hl-b:90%;} .ds-hl-beet{--hl-color:color-mix(in srgb,var(--color-beet) 28%,transparent);} .ds-hl-demo:hover .ds-hl{background-size:0% 100%;}"
+    },
+    {
+      "name": "Brotinho Mascot",
+      "kind": "custom",
+      "refersTo": "brotinho",
+      "description": "Sprout-in-a-box line-art mascot (happy mood shown); moods happy, tired, idea, wave, chat.",
+      "html": "<svg class=\"ds-brotinho\" viewBox=\"0 0 170 170\" fill=\"none\" stroke=\"#1a1a1a\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M26 160c30-4 74-5 118-1\" stroke-width=\"2\" opacity=\".5\"/><path d=\"M88 67c-2-12 2-23-2-37\"/><path d=\"M86 34c-16-16-36-12-40-4 10 12 28 12 40 4z\" fill=\"#82d85a\"/><path d=\"M87 30c9-18 31-22 39-14-6 14-24 20-39 14z\" fill=\"#82d85a\"/><path d=\"M30 78l22-16 94-2-20 14z\" fill=\"#f1dfbe\"/><path d=\"M126 74l20-14 2 74-18 16z\" fill=\"#e2c595\"/><path d=\"M132 84l12-9M132 98l12-9M132 112l12-9M132 126l12-9\" stroke-width=\"1.6\"/><path d=\"M30 78l96-4 4 76-96 4z\" fill=\"#f1dfbe\"/><path d=\"M32 114c-8 6-12 14-12 20\"/><path d=\"M129 114c9 6 13 14 13 20\"/><circle cx=\"66\" cy=\"106\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"none\"/><circle cx=\"94\" cy=\"105\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"none\"/><path d=\"M68 121c6 8 18 8 25-1\"/><path d=\"M54 116c3 1 6 1 8 0M98 115c3 1 6 1 8 0\" stroke=\"#c2185b\" stroke-width=\"2.4\" opacity=\".7\"/></svg>",
+      "css": ".ds-brotinho{width:160px;height:auto;display:block;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Marker Explainer",
+    "overview": "A friend takes a black marker to a sheet of graph paper, tapes the real kit photo to it, and draws arrows to the soil, the seeds, the sprayer and the tools. Every section is an explained drawing, not a sales block: headings are hand-lettered, boxes are ruled by hand with a second offset stroke, lists sit on lined paper, sticky notes are taped down, and a small sprout-in-a-box mascot, Brotinho, acts out each step. The page is warm and plainly instructive, the register of a notebook page someone made for you.\n\nDensity is relaxed: one idea per panel, generous section rhythm, and the graph grid always visible so the paper reads as a surface. Real photography carries the product truth; drawing carries the explanation. Nothing is glossy, blurred or gradient-lit. The marker world refuses the eco-D2C template of stock leaves, badge rows and equal icon cards.\n\nMotion is the act of drawing: arrows, ticks, stars, swipes and highlighter bands draw themselves in when their section enters view. Text is never hidden, and under reduced motion or without JavaScript everything is already drawn.",
+    "keyCharacteristics": [
+      "Off-white paper with a faint forest-green 28px graph grid across the whole page.",
+      "Black marker ink for every border, arrow and outline; Kalam lettering for everything drawn, Archivo for prose.",
+      "Hand-ruled boxes with asymmetric wobble radii and a second, offset ink stroke.",
+      "Sprout green as the single action fill; beet magenta only as a second highlighter and marker accent.",
+      "Annotated real photography: taped photos with drawn arrows or numbered pins.",
+      "Brotinho the mascot as line art in numbered comic panels.",
+      "Draw-on reveal with exponential ease-out; already drawn when motion is reduced."
+    ],
+    "rules": [
+      {
+        "name": "The One Fill Rule",
+        "body": "Sprout is the only color a button is filled with, and every sprout-filled button opens WhatsApp. No second button color exists.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Markers Rule",
+        "body": "There are exactly two highlighters: sprout for the primary swipe and beet (28% mix) for secondary emphasis. A third highlighter color is never introduced.",
+        "section": "colors"
+      },
+      {
+        "name": "The Forest Text Rule",
+        "body": "Green type is always forest (#1c7434), never sprout; sprout is a fill and a highlighter, not a text color on paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Marker Speaks, Archivo Explains Rule",
+        "body": "Anything that reads as drawn or handwritten is Kalam; any sentence of explanation is Archivo. Archivo never appears as a heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Kalam Band Rule",
+        "body": "The highlighter band sits at 46% to 90% of the line box in Archivo and moves up to 40% to 74% in Kalam, whose tall font box would otherwise push the band below the letters.",
+        "section": "typography"
+      },
+      {
+        "name": "The Graph Paper Rule",
+        "body": "The grid runs under every section by default; surfaces sit on it rather than covering the page.",
+        "section": "layout"
+      },
+      {
+        "name": "The Quiet Band Rule",
+        "body": "One deliberately calmer band separates the densest content: the Nossos Kits section drops the grid behind a white wash at 70% opacity, bordered top and bottom by 2.5px ink rules. The footer reuses the same wash with a top rule. Use the band for a dense product section, not as a general section background.",
+        "section": "layout"
+      },
+      {
+        "name": "The Second Stroke Rule",
+        "body": "Lift is a second offset outline in ink, never a blurred shadow. Only paper and tape cast a real (tiny) shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Wobble Rule",
+        "body": "Every bordered drawn box uses an asymmetric wobble radius and a slight tilt; only photographs and the floating button are geometrically clean.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** set every border, arrow and doodle in marker ink (#1a1a1a) at 2 to 3px.",
+      "**Do** give drawn boxes an asymmetric wobble radius, a second offset stroke and a 1 to 2 degree tilt.",
+      "**Do** keep the 28px forest graph grid visible under every section except the one quiet band.",
+      "**Do** annotate real photography with drawn arrows or numbered pins; tape photos down.",
+      "**Do** use Kalam for anything drawn or handwritten and Archivo for explanation.",
+      "**Do** make every WhatsApp action the sprout action button with deep-leaf-ink label.",
+      "**Do** render everything fully drawn when motion is reduced or JavaScript is off."
+    ],
+    "donts": [
+      "**Don't** lift cards with blurred drop shadows; depth is the second stroke.",
+      "**Don't** fill a button with any color but sprout, or fill a box, band or note with full-strength sprout; non-action surfaces use the sprout wash.",
+      "**Don't** set green text in sprout; green type is forest.",
+      "**Don't** add a third highlighter color or more than one sprout swipe per heading.",
+      "**Don't** use perfectly square or uniformly rounded borders on drawn boxes.",
+      "**Don't** use emoji or icon-font glyphs; marks are drawn SVG strokes, and the WhatsApp mark is the brand asset.",
+      "**Don't** hide or fade text as part of the reveal; only strokes and highlighter bands animate."
+    ]
+  }
+}
