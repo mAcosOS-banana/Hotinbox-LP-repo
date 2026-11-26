@@ -321,9 +321,13 @@
 /* Jornada do broto: a plantinha que cresce com a rolagem e a folha que cai até o Brotinho. */
 .jornada-plant {
   --pw: 64px;
+  /* Drawing aspect (158 / 170) and the scale it reaches at centre stage. */
+  --ph: calc(var(--pw) * 0.93);
+  --pad: calc(20px + env(safe-area-inset-bottom, 0px));
   position: fixed;
-  bottom: 0;
-  left: calc(12px + (50vw - 12px - var(--pw) / 2) * var(--c, 0));
+  /* Rests a little above the bottom edge, then rises with --c until its centre meets the screen's. */
+  bottom: calc(var(--pad) * (1 - var(--c, 0)) + (50dvh - var(--ph) * 1.7 / 2) * var(--c, 0));
+  left: calc(16px + (50vw - 16px - var(--pw) / 2) * var(--c, 0));
   z-index: 25;
   width: var(--pw);
   pointer-events: none;
@@ -341,12 +345,12 @@
 @media (width >= 48em) {
   .jornada-plant {
     --pw: 96px;
+    --pad: 28px;
   }
 }
-.jornada-stem {
-  stroke-dasharray: 1;
-  /* A tiny sprout shows from the start; the rest draws upward with the scroll. */
-  stroke-dashoffset: calc(0.94 - var(--g, 0) * 0.94);
+/* The sprout starts hidden inside the box and rises out of it as the page scrolls. */
+.jornada-sprout {
+  translate: 0 calc((1 - min(1, var(--g, 0) / 0.86)) * 58px);
 }
 .jornada-seed-l,
 .jornada-tip {

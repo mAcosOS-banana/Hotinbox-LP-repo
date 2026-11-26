@@ -160,13 +160,14 @@ export function JornadaBroto() {
   return (
     <>
       <div ref={plantRef} className="jornada-plant" aria-hidden="true">
-        <svg viewBox="0 150 170 190" fill="none" stroke="var(--color-ink)" strokeLinecap="round" strokeLinejoin="round" overflow="visible">
-          {/* the sprout, drawn upward out of the box */}
+        <svg viewBox="0 182 170 158" fill="none" stroke="var(--color-ink)" strokeLinecap="round" strokeLinejoin="round" overflow="visible">
+          {/* the sprout rises out of the box with the scroll; the box, drawn after it, hides
+              whatever part of it is still inside */}
+          <g className="jornada-sprout">
           <path
-            className="jornada-stem"
-            pathLength={1}
             d="M86 276C82 262 90 248 86 234 84 226 86 218 86 211"
-            strokeWidth={2.6}
+            stroke="var(--color-forest)"
+            strokeWidth={5}
           />
           {/* two seed leaves open at the top: left stays, right is the one that falls */}
           <g transform="translate(0 178)">
@@ -179,6 +180,7 @@ export function JornadaBroto() {
           <g className="jornada-tip">
             <path ref={tipRef} d={LEAF_D} fill="var(--color-sprout)" strokeWidth={3} />
             <path d={LEAF_VEIN} strokeWidth={1.8} />
+          </g>
           </g>
           </g>
           {/* the kraft box the plant grows from */}
